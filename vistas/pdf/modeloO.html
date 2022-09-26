@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pdf Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 12px; text-align: justify;" width="20">
+        <img class="d-block mx-auto mb-2"
+          src="data:image/jpeg;base64,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T+s2cLn+JP8A0jD00bo1OizsPJnLmdcGZmoV9RQB1uyoSwGrRq1luydI7BtzvccunxXz4qiVMKgKmi1dgzaSEW1wtgbtv5cu+T1T4RZy5drnXMWyLNuICPbFqlT/AN5tKj/xki3yWT2VejEJZs7rbbXSnsL9xdhuOmyjzllxOaviSi0yAwZ9YHNCtVaKlhc2FnD7/hvMOHweLxaH1wN3S3bY9gnS6MOzcsjq9wR8S2NhIuVVnDN7vdmwGIwuUKEyGmtjcsQG3VQpJJ0s1QkOum1777gCY6Xrs0FW6li4VRVDAIhWzatBJuGslRbA312JFpJ4fh2lS1esuwLEhbkAXJK2F9ioYrsRdbAg2EmKdMUgBTAAAsABYADkAByErtrJrwwZdgly9AmH1aRyBJNvAX5Dwm5ESEkREBERAREQEREBERAREQEREBERAREQEREDBWoLWBFZVYHmCARbyPkPpNX9k0O1akgJXSSFA7NgttulgB5ASRiBGtk1BtV05tq2ZhZje5Wzdi+o302vc3vMlbK6NdUWtSRlQWVSoIUWtYX5DYfQTeiBgo0VpACmLbAeNgLC5O5+czxEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED//Z"
+          alt="" width="120" height="100">
+      </td>
+      <td style="font-size: 12px; text-align: center;" width="30" colspan="2">
+        CLINICA "ALMENDROS" <br> <span style="font-size: 7px; text-align: center;">UNIDAD MEDICO QUIRURGÍCA</span>
+      </td>
+      <td style="font-size: 12px; text-align: justify;" width="50" colspan="2">
+        HISTORIA CLINICA<br> <span style="font-size: 7px; text-align: center; color: #fff;">unidad</span>
+      </td>
+    </tr> <br>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 11px; text-align: justify;">
+        No. Expediente: 1
+      </td>
+    </tr>
+  </table>
+  <br>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: justify;">FICHA DE
+    IDENTIFICACIÓN
+  </h1>
+  <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 11px; text-align: justify;" width="70%">
+        NOMBRE DEL PACIENTE: Eloy Hernandez Felipe
+      </td>
+      <td style="font-size: 11px; text-align: right;" width="30%">
+        FECHA: 12/09/2022
+      </td>
+    </tr>
+  </table><br>
+  <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 11px; text-align: justify;" width="15%">
+        EDAD: 23
+      </td>
+      <td style="font-size: 11px; text-align: justify;" width="25%">
+        SEXO: MASCULINO
+      </td>
+      <td style="font-size: 11px; text-align: justify;" width=" 35%">
+        EDO. CIVIL: SOLTERO
+      </td>
+      <td style="font-size: 11px; text-align: justify;" width="25%">
+        RELIGIÓN:CRISTIANO
+      </td>
+    </tr>
+  </table><br>
+  <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 11px; text-align: justify;" width="50%">
+        LUGAR DE ORIGEN:SAN VICENTE
+      </td>
+      <td style="font-size: 11px; text-align: justify;" width="50%">
+        OCUPACIÓN: ALBAÑIL
+      </td>
+    </tr>
+  </table><br>
+  <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td style="font-size: 11px; text-align: justify;">
+        DOMICILIO:BARRIO EL PORTILLO
+      </td>
+      <td style="font-size: 11px; text-align: justify;">
+        TELÉFONO:9513428031
+      </td>
+    </tr>
+  </table>
+  <br>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">ANTECEDENTES
+    HEREDOFAMILIARES
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td width="35%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>MADRE CON:</span>
+
+              </div>
+            </td>
+            <td width="35%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>FALLECIDO:</span>
+              </div>
+            </td>
+            <td width="70%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>CAUSA:</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="35%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>PADRE CON:</span>
+
+              </div>
+            </td>
+            <td width="35%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>FALLECIDO:</span>
+              </div>
+            </td>
+            <td width="70%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>CAUSA:</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">ANTECEDENTES
+    PERSONALES NO PATOLÓGICOS
+  </h1>
+  <table class="table" class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="20%">
+        <span style="font-size: 11px;">ALERGIAS:</span>
+      </td>
+      <td colspan="2">
+        <span style=" font-size: 11px;"">MEDICAMENTOS</span>
+      </td>
+    </tr>
+    <tr>
+      <td align=" left" valign="top" bgcolor="#ffe77b"
+          style="font-size: 11px; text-align: justify; background-color: #fff;">
+      </td>
+      <td colspan="2" align="left" valign="top" bgcolor="#ffe77b"
+        style="font-size: 11px; text-align: justify; background-color: #fff;">
+
+        <span>ALIMENTOS:</span>
+
+      </td>
+    </tr>
+    <tr>
+      <td align="left" valign="top" bgcolor="#ffe77b"
+        style="font-size: 11px; text-align: justify; background-color: #fff;">
+
+      </td>
+      <td colspan="2" align="left" valign="top" bgcolor="#ffe77b"
+        style="font-size: 11px; text-align: justify; background-color: #fff;">
+
+        <span>SUSTANCIAS QUIMICAS:</span>
+
+      </td>
+    </tr>
+  </table>
+  <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <span style="font-size: 11px;">CIRUGÍAS PREVIAS:</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span style="font-size: 11px;">TRANSFUSIONES:</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span style="font-size: 11px;">FRACTURAS ACTUALES Y/O PREVIAS:</span>
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td width="10%" colspan="1">
+        <span style="font-size: 11px;">TOXICOMANÍAS:</span>
+      </td>
+      <td width="20%">
+        <span style="font-size: 11px;">ALCOHOLISMO:</span>
+      </td>
+      <td width="20%">
+        <span style="font-size: 11px;">TABAQUISMO:</span>
+      </td>
+      <td width="20%">
+        <span style="font-size: 11px;">DROGAS:</span>
+      </td>
+    </tr>
+  </table>
+  </div>
+  </div>
+  </div>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">ANTECEDENTES
+    PERSONALES PATOLÓGICOS
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table" class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>DM:</span>
+
+              </div>
+            </td>
+            <td width="80%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>TIEMPO DE EVOLUCIÒN:</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>HAS:</span>
+
+              </div>
+            </td>
+            <td width="80%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>TIEMPO DE EVOLUCIÒN:</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">OTROS DE IMPORTANCIA:</span>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">EXPLORACIÓN
+    FISICA
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 12px;"> SIGNOS VITALES:</span>
+            </td>
+          </tr>
+          <tr>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>T/A:</span>
+              </div>
+            </td>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>FC:</span>
+
+              </div>
+            </td>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>FR:</span>
+              </div>
+            </td>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>TEMP:</span>
+              </div>
+            </td>
+            <td width="20%" align="left" valign="top" bgcolor="#ffe77b"
+              style="font-size: 11px; text-align: justify; background-color: #fff;">
+              <div class="input-group mb-3">
+                <span>PESO:</span>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CABEZA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CUELLO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">ABDOMEN:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">MIEMBROS PÉLVICOS:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">MIEMBROS TORÁCICOS:</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">MENARCA:</span>
+            </td>
+            <td>
+              <span style="font-size: 11px;">CESÁREAS:</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">IVSA:</span>
+            </td>
+            <td>
+              <span style="font-size: 11px;">ABORTO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">GESTA:</span>
+            </td>
+            <td>
+              <span style="font-size: 11px;">PARAS:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">RESULTADOS DE
+    LABORATORIO
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td>
+              <span style="font-size: 11px;">BH:</span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">HEMOGLOBINA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;"></span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">HEMATOCRITO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;"></span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">PLAQUETAS:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">QS:</span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">GLUCOSA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;"></span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">UREA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;"></span>
+            </td>
+            <td colspan="2">
+              <span style="font-size: 11px;">CREATININA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">RX:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">USG:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">OTROS:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">TRATAMIENTO
+    ACTUAL
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td>
+              <span style="font-size: 11px;">MÉDICO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">QUIRÚRGICO:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td>
+              <span style="font-size: 11px;">DIAGNÓSTICO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">ELABORÓ:</span>
+            </td>
+            <td>
+              <span style="font-size: 11px;">FIRMA:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h1 style="font-size: 13px;font-weight: 600; color: rgb(0, 0, 0); margin-top: 8px; text-align: left;">NOTA POST-QUIRURGICA
+  </h1>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table">
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CIRUGÍA PROGRAMADA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CIRUGÍA REALIZADA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">HALLAZGOS:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">COMPLICACIONES:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CIRUJANO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">AYUDANTE:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">INSTRUMENTISTA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">ANESTESIOLOGO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">CIRCULANTE:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">NOTA DE EVALUACIÓN POSTOPERATORIA:</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span style="font-size: 11px;">NOTA DE ALTA DEL SERVICIO:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div><br>
+  <div style="text-align: justify;" colspan="4">
+    <div class="text-center">
+      <div class="card-header">
+        <table class="table" width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td colspan="2">
+              <span style="font-size: 11px;">DIAGNÓSTICO:</span>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%">
+              <span style="font-size: 11px;">ELABORÓ: Dra. Adaí Pérez Montesinos</span>
+            </td>
+            <td width="50%">
+              <span style="font-size: 11px;">FIRMA:</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!--table class="table" width="95%">
+    <thead>
+      <tr>
+        <th scope="col">Photo</th>
+        <th scope="col">Description</th>
+        <th scope="col">Unit</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products.prodlist}}
+      <tr>
+        <td width="10%">
+          <img height="70" width="70" src="{{this.imgurl}}" alt="">
+        </td>
+        <th scope="row" width="50%">
+          <h5 style="font-weight: 700;color:chocolate">{{this.name}}</h5>
+          <p>{{this.description}}</p>
+        </th>
+        <td width="10%">{{this.unit}}</td>
+        <td width="10%">{{this.quantity}}</td>
+        <td width="10%">${{this.price}}</td>
+        <td width="10%">${{this.total}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="90%" align="right" style="font-size: 25px;font-weight: 700;color:darkred; background-color: #f6f6f6;">
+        Sub Total</td>
+      <td width="10%" align="right" style="background-color: lightgreen;">
+        <h2 style="font-size: 25px;font-weight: 700;color:#fff;">${{products.subtotal}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="90%" align="right" style="font-size: 25px;font-weight: 700;color:darkred; background-color: #f6f6f6;">
+        Tax</td>
+      <td width="10%" align="right" style="background-color: lightcoral;">
+        <h2 style="font-size: 25px;font-weight: 700;color:#fff;">${{products.tax}}</h2>
+      </td>
+    </tr>
+    <tr>
+      <td width="90%" align="right" style="font-size: 25px;font-weight: 700;color:darkred; background-color: #f6f6f6;">
+        Grand Total</td>
+      <td width="10%" align="right" style="background-color: lightgreen;">
+        <h2 style="font-size: 25px;font-weight: 700;color:#fff;">${{products.gtotal}}</h2>
+      </td>
+    </tr>
+  </table>
+  <table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="100%" align="left" style="font-size: 25px;font-weight: 700;color:red; background-color: #f6f6f6;">
+        Notice:</td>
+    </tr>
+    <tr>
+      <td width="100%" align="left" style="font-size: 25px;font-weight: 700;color:#000; background-color: #f6f6f6;">A
+        finance charge of 1.5% will be made on unpaid balances after 30 days.</td>
+    </tr>
+  </table-->
+</body>
+
+</html>

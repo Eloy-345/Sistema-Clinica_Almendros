@@ -1,0 +1,605 @@
+<div class="p-3 mb-2 bg-body text-dark"></div>
+<%- include ('../plantillas/head', {'titulo': 'Traumatologia' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <script src="js/traumatologia.js"> </script>
+        <script src="js/funciones.js"> </script>
+        <br>
+        <br>
+        <div class="container">
+            <!--agregar la propiedad Required nuevamnete una vez que el ingreso de datos comience a funcionar para que form-check-laber funcione otra vez-->
+
+            <div class="card ">
+                <div class="card-body row justify-content-center">
+                    <!--formulario-->
+                    <div class="col-md-7 col-lg-8">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <img class="d-block mx-auto mb-4"
+                                            src="data:image/jpeg;base64,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T+s2cLn+JP8A0jD00bo1OizsPJnLmdcGZmoV9RQB1uyoSwGrRq1luydI7BtzvccunxXz4qiVMKgKmi1dgzaSEW1wtgbtv5cu+T1T4RZy5drnXMWyLNuICPbFqlT/AN5tKj/xki3yWT2VejEJZs7rbbXSnsL9xdhuOmyjzllxOaviSi0yAwZ9YHNCtVaKlhc2FnD7/hvMOHweLxaH1wN3S3bY9gnS6MOzcsjq9wR8S2NhIuVVnDN7vdmwGIwuUKEyGmtjcsQG3VQpJJ0s1QkOum1777gCY6Xrs0FW6li4VRVDAIhWzatBJuGslRbA312JFpJ4fh2lS1esuwLEhbkAXJK2F9ioYrsRdbAg2EmKdMUgBTAAAsABYADkAByErtrJrwwZdgly9AmH1aRyBJNvAX5Dwm5ESEkREBERAREQEREBERAREQEREBERAREQEREDBWoLWBFZVYHmCARbyPkPpNX9k0O1akgJXSSFA7NgttulgB5ASRiBGtk1BtV05tq2ZhZje5Wzdi+o302vc3vMlbK6NdUWtSRlQWVSoIUWtYX5DYfQTeiBgo0VpACmLbAeNgLC5O5+czxEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED//Z"
+                                            alt="" width="140" height="120">
+
+                                    </div>
+                                </td>
+                                <th>
+                                    <h3>CLINICA "ALMENDROS"</h3>
+                                    <h4 class="text-center texto-justificado">UNIDAD MÉDICO QUIRURGÍCA</h4>
+                                </th>
+                                <td></td>
+                                <th>
+                                    <h3 class="text-left"> HISTORIAL CLINICA</h3>
+                                </th>
+
+                            </tr>
+                        </table>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label for="paterno" class="form-label">No. Expediente</label>
+                                <input type="text" class="form-control" id="paterno" name="apellidoPat" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <br>
+                        <!--  <form method="post" action="/users/estudio/seccion1" >-->
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>FICHA DE IDENTIFICACIÓN</h4>
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label">Fecha</label>
+                                <input type="date" id="fecha" name="fecha" class="form-control" value="2022-1-1"
+                                    min="2022-01-01" max="2050-12-31">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edad" class="form-label">Edad</label>
+                                <input type="text" class="form-control" id="edad" name="edad" placeholder="" value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label"> Sexo</label>
+                                <div class="col">
+                                    <select class="form-select" aria-label="Default select example" id="sexo"
+                                        name="sexo">
+                                        <option selected>Seleccione</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="femenino">Femenino</option>
+                                        <option value="otro">Otro</option>
+                                        <option value="especifica">No especifica</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="estado" class="form-label">Estado civil</label>
+                                <select class="form-select" aria-label="Default select example" id="estado"
+                                    name="estadoCivil">
+                                    <option selected>Seleccione</option>
+                                    <option value="Soltero">Solter@</option>
+                                    <option value="Casado">Casad@</option>
+                                    <option value="Divorciado">Divorciad@</option>
+                                    <option value="Divorciado">Unión Libre</option>
+                                    <option value="Divorciado">Viud@</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Religión</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Lugar de origen</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Ocupación</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Domicilio</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="telefono" class="form-label">Numero de Teléfono</label>
+                                <input type="number" class="form-control" id="telSolicitante" name="telSolicitante"
+                                    placeholder="" value="">
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>ANTECEDENTES HEREDOFAMILIARES</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label"> Madre con:</label>
+                                <div class="col">
+                                    <select class="form-select" aria-label="Default select example" id="sexo"
+                                        name="sexo">
+                                        <option selected>Seleccione</option>
+                                        <option value="masculino">DM</option>
+                                        <option value="femenino">HAS</option>
+                                        <option value="otro">CA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-check-label" for="celsi">Fallecido: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Causa:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label"> Padre con:</label>
+                                <div class="col">
+                                    <select class="form-select" aria-label="Default select example" id="sexo"
+                                        name="sexo">
+                                        <option selected>Seleccione</option>
+                                        <option value="masculino">DM</option>
+                                        <option value="femenino">HAS</option>
+                                        <option value="otro">CA</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-check-label" for="celsi">Fallecido: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Causa:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>ANTECEDENTES PERSONALES NO PATOLÓGICOS</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Alergias:</label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Medicamentos:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Alimentos:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Sustancias quimicas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Cirugias previas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Transfusiones:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Fracturas actuales y/o previas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Taxicomias:</label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""--->
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Alcoholismo: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Tabaquismo: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Drogas: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!--antecedentes personales patalogicos-->
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>ANTECEDENTES PERSONALES PATOLÓGICOS</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label class="form-check-label" for="celsi">DM: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Tiempo de evolución:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label class="form-check-label" for="celsi">HAS: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Tiempo de evolución:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <!--exploración fisica-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>EXPLORACIÓN FISICA</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Signos vitales:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">T/A:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">FC:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">FR:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">TEMP:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">PESO:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Cabeza:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Cuello:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Abdomen:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Miembros pélvicos:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Miembros torácicos:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <!--antecendent ginecobstétricos-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>ANTECEDENTES GINECOBSTÉTRICOS</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">Menarca:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">Cesáreas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">IVSA:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">Aborto:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">Gesta:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="nombre" class="form-label">Parás:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <!--resultados de laboratorio-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>RESULTADOS DE LABORATORIO</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">BH:</label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Hemoglobina:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Hematocrito:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Plaquetas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">QS:</label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Glucosa:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Urea:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label"></label>
+                                <!--input type="text" class="form-control" id="nombre" name="nombres" placeholder="" value=""-->
+                            </div>
+                            <div class="col-sm-10">
+                                <label for="nombre" class="form-label">Creatinina:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="rx" class="form-label">RX:</label>
+                                <input type="text" class="form-control" name="rxs" id="rx" value="" placeholder="">
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="usg" class="form-label">USG:</label>
+                                <input type="text" class="form-control" name="rxs" id="usg" value="" placeholder="">
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="otro" class="form-label">otros:</label>
+                                <input type="text" class="form-control" name="otros" id="otro" value="" placeholder="">
+                            </div>
+                        </div>
+                        <!--tratamiento actual-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>TRATAMIENTO ACTUAL</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="medico" class="form-label">Médico:</label>
+                                <input type="text" class="form-control" name="otros" id="medico" value=""
+                                    placeholder="">
+                            </div>
+                            <div class="col-sm-12">
+                                <label for="quirurgico" class="form-label">Quirúrgico:</label>
+                                <input type="text" class="form-control" name="otros" id="quirurgico" value=""
+                                    placeholder="">
+                            </div>
+                        </div>
+
+                        <!--final de la página-->
+                        <br><br><br>
+                        <div class="row g-3">
+                            <div class="col-sm-12">
+                                <label for="quirurgico" class="form-label">Diagnóstico:</label>
+                                <input type="text" class="form-control" name="otros" id="quirurgico" value=""
+                                    placeholder="">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-sm-8">
+                                <label for="quirurgico" class="form-label">Elaboró:</label>
+                                <input type="text" class="form-control" name="otros" id="quirurgico" value=""
+                                    placeholder="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="quirurgico" class="form-label">Firma:</label>
+                                <input type="text" class="form-control" name="otros" id="quirurgico" value=""
+                                    placeholder="">
+                            </div>
+                        </div>
+                        
+                        <!--botones para guardar -->
+                        <br>
+                        <div class="modal-footer">
+                            <a class="btn btn-success" href="/operacion" role="button">Siguiente</a>
+                            <button id="insertar" type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <br>
+                        <!--carta de consentimiento-->
+                        <br>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <%- include ('../plantillas/footer') %>

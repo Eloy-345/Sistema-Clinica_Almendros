@@ -1,0 +1,1419 @@
+<%- include ('../plantillas/head', {'titulo': 'Expediente Terapia' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <script src="js/pacienteTerapi.js"> </script>
+        <script src="js/funciones.js"> </script>
+        <br>
+        <br>
+        <div class="container">
+            <!--agregar la propiedad Required nuevamnete una vez que el ingreso de datos comience a funcionar para que form-check-laber funcione otra vez-->
+
+            <div class="card ">
+                <div class="card-body row justify-content-center">
+                    <!--formulario-->
+                    <div class="col-md-7 col-lg-8">
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <img class="d-block mx-auto mb-4" src="assets/images/zyro-image.png" alt=""
+                                            width="140" height="120">
+
+                                    </div>
+                                </td>
+                                <th>
+                                    <h3>FISIOTEAM</h3>
+                                </th>
+                                <td></td>
+                                <th>
+                                    <h3 class="text-center"> HISTORIAL CLINICA FISIOTERAPIA</h3>
+                                </th>
+
+                            </tr>
+                        </table>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="card-header"></div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label"> Sexo</label>
+                                <div class="col">
+                                    <select class="form-select" aria-label="Default select example" id="sexo"
+                                        name="sexo">
+                                        <option selected>Seleccione</option>
+                                        <option value="masculino">Masculino</option>
+                                        <option value="femenino">Femenino</option>
+                                        <option value="otro">Otro</option>
+                                        <option value="especifica">No especifica</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Domicilio</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="edad" class="form-label">Edad</label>
+                                <input type="text" class="form-control" id="edad" name="edad" placeholder="" value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="telefono" class="form-label">Numero de Teléfono</label>
+                                <input type="number" class="form-control" id="telSolicitante" name="telSolicitante"
+                                    placeholder="" value="">
+
+                            </div>
+                            <div class="col-md-4">
+                                <label for="estado" class="form-label">Estado civil</label>
+                                <select class="form-select" aria-label="Default select example" id="estado"
+                                    name="estadoCivil">
+                                    <option selected>Seleccione</option>
+                                    <option value="Soltero">Solter@</option>
+                                    <option value="Casado">Casad@</option>
+                                    <option value="Divorciado">Divorciad@</option>
+                                    <option value="Divorciado">Unión Libre</option>
+                                    <option value="Divorciado">Viud@</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Ocupación</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Escolaridad</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-12">
+                                <label for="nombre" class="form-label">Terapeuta</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="paterno" class="form-label">Expediente#</label>
+                                <input type="text" class="form-control" id="paterno" name="apellidoPat" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="state" class="form-label">Fecha</label>
+                                <input type="date" id="fecha" name="fecha" class="form-control" value="2022-1-1"
+                                    min="2022-01-01" max="2050-12-31">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Motivo de la
+                                        consulta</label>
+                                    <textarea class="form-control" type="" id="" rows="6"
+                                        placeholder="INGRESA AQUÍ TUS OBSERVACIONES"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">Tratamientos
+                                        Previos</label>
+                                    <textarea class="form-control" type="" id="" rows="6"
+                                        placeholder="INGRESA AQUÍ TUS OBSERVACIONES"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Antecedentes Patológicos Heredofamiliares</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Diabetes: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Enf. Reumáticas: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Alergia: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Encames: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">HTA: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Accidentes: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Cáncer: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Cardiopatías: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Transfusiones: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Cirugías: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Fracturas: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">T/A:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">TEMP:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">FC:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">FR:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <!--antecedentes personales patalogicos-->
+
+
+                        <!--exploración fisica-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Hábitos de salud</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <!---->
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Tabaquismo: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Actividad Fisica: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Alcoholismo: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Se automedica: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Drogas: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+
+                            <!---->
+                            <div class="col-sm-3">
+                                <label class="form-check-label" for="celsi">Pasatiempo: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <!---->
+                        <!--antecendent ginecobstétricos-->
+                        <br>
+                        <div class="row g-4 ">
+                            <div class="text-left">
+                                <div class="card-header">
+                                    <h4>En mujeres: Estado de ingravidez</h4>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-sm-5">
+                                <label class="form-check-label" for="celsi">Esta embarazada: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Especifique:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Cuantos hijos tiene:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <!--resultados de laboratorio-->
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Diagnóstico Médico en Rehabilitación</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Reflejos:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Sensibilidad:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Lenguaje/orientación:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Otros:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Cicatríz Quirúrgica</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Sitio:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Queloide:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Retractil:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Abierta:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Con Adherencia:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="nombre" class="form-label">Hipertrófica:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Traslados</h4>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Val. inicial:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Independiente:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Silla de ruedas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Con ayudas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Con camillas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                        </div>
+                        <div class="row g-3 ">
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Val. inicial:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Independiente:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-3">
+                                <label for="nombre" class="form-label">Silla de ruedas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Con ayudas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="nombre" class="form-label">Con camillas:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+
+                        </div>
+                        <!--***-->
+                        <br>
+                        <div class="row g-4 ">
+                            <div class="text-left">
+                                <div class="card-header">
+                                    <h4>Marcha/Deambulación</h4>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Libre: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Espásticas: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Claudicante: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Atáxica: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Con ayuda: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-check-label" for="celsi">Otros: </label>
+                                <div class="form-check form-check-inline">
+                                    <input id="celsi" name="celular" value="si" type="radio" class="form-check-input">
+                                    <label class="form-check-label" for="celsi">Si</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input id="celno" name="celular" value="no" type="radio" class="form-check-input"
+                                        checked>
+                                    <label class="form-check-label" for="celno">No</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Observaciones:</span>
+                                    <input tcype="text" class="form-control" placeholder="" aria-label="Username"
+                                        name="Hermanos" aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Escala de dolor</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">0:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">1:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">2:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">3:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">4:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">5:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">6:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">7:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">8:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">9:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">10</label>:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <div class="col-sm-1">
+                                <label for="nombre" class="form-label">11:</label>
+                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                    value="">
+                            </div>
+                            <br>
+                            <img src="imagenes/ima2.png" alt="no existe">
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            <div class="card-header">
+                                <h4>Evaluación Muscular</h4>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <img src="imagenes/tabla.png" alt="error al cargar imagen">
+                            <br>
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th>
+
+                                        </th>
+                                        <th colspan="2" style="text-align: center;">
+                                            EVALUACIÓN 1
+                                        </th>
+                                        <th colspan="2" style="text-align: center;">
+                                            EVALUACIÓN 2
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="text-align: center;">
+                                        <th>
+
+                                        </th>
+                                        <th>Izquierda</th>
+                                        <th>Derecha</th>
+                                        <th>Izquierda</th>
+                                        <th>Derecha</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            M.SUP
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            M.INF
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>TRONCO</th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>CUELLO</th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th colspan="5" style="background-color:#d4d6d8 ;">
+                                           <h5 style="text-align: center;">Evaluación Goniométrica</h5> 
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+
+                                        </th>
+                                        <th colspan="2" style="text-align: center;">
+                                            EVALUACIÓN 1
+                                        </th>
+                                        <th colspan="2" style="text-align: center;">
+                                            EVALUACIÓN 2
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="text-align: center;">
+                                        <th>
+
+                                        </th>
+                                        <th>Izquierda</th>
+                                        <th>Derecha</th>
+                                        <th>Izquierda</th>
+                                        <th>Derecha</th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            M.SUP
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            M.INF
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>TRONCO</th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>CUELLO</th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th >
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <div class="col-sm-12">
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <br>
+                        <div class="row g-3 ">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <th colspan="3">
+                                            <img src="imagenes/humano.png" alt="no existe imagen">
+                                        </th>
+                                        <th colspan="4">
+                                            <div class="col-sm-10">
+                                                <label for="" style="background-color:#d4d6d8 ;">Nota clinica- Valoración Inicial</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="" style="background-color:#d4d6d8 ;">Subjetivo</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="" style="background-color:#d4d6d8 ;">Subjetivo</label>
+                                                <input type="text" class="form-control" id="nombre" name="nombres" placeholder=""
+                                                    value="">
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--condicion para operacion-->
+                        
+                        <!--botones para guardar -->
+                        <br>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close"
+                                href="/paciente">Cerrar</button>
+                            <button id="insertar" type="button" class="btn btn-primary">Guardar</button>
+                        </div>
+                        <br>
+                        <!--carta de consentimiento-->
+                        <div id="operacion1" style="display: none;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="text-center">
+                                            <img class="d-block mx-auto mb-4"
+                                                src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUIFRIXCBYZGBYZHBweHBgcHRwgJB0dJCEeGhogHBwdITEzHB4rLRocJzgmKzAxNTU2HSQ7QDs0QC43NTEBDAwMEA8QHxISHz8rISs9NjQ0NjQ0NDQ2NDQ0NTQ9NDQ2NjQ0NDQ0Nj80NDQ0PzQ0NDQ0PTQ2NDQ1NDQ0NDQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAgMBAQEAAAAAAAAAAAAABQYDBAcBAgj/xAA/EAACAQIEAwQIAwYFBQEAAAABAgADEQQFEiEGMUEiUWFxBxMUMkKBkaFSorEVI2JywdEkM4KS8DVTg7LCFv/EABkBAQADAQEAAAAAAAAAAAAAAAABAgMEBf/EACcRAQEAAgEDBAIBBQAAAAAAAAABAhEDEiExBEFRYQUyIhMUI4Gx/9oADAMBAAIRAxEAPwDs0REBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERARPhmCAltgJ9A35QESOzHMky/1fr/iYjptYFiTc9w5Dcki0i8bxZTwaYZ6ikivuACDpFwCSRcG2ocvGTqpmNviLLEjMRmy0MRQoFSWqKzBgRYaQTuPG0x4/PaeBrUaNYNrq20kDYXOkX323jRJUvEisPnlDENXSk/ao39ZcMAoFwTqIsQLHkek3cNjKeLF8M6uO9WB/SQWWNmIiEEREBERAREQEREBERAREQEREBERATyLyn4nOayUMQmEbVicOf3hZeakkllG1wB4W28QZMiZLfCyZhjky5HqYkkKgu1gSdzYbCQedZvXqVaFDIygaohqesbcBOltjzseh6Ss4HOlxeIPtilBikFOsm9tVtKOhPwm9vAlufObOXYKvXRPYyvtWBdqZDbB0Pui/lcDw+UnWmv9OTykOKnqVcDTGbhUdqiK+k3AFzv9Be283eCc2/aFHRUYM9Lsk/iXkjb77gW36iYMNw7UxyOc9YBmrLVZUN1AUEBO1cW3N59YjPMsyao9QVKYqFQp9Xd9haw0pcDkO7lH0plnjjjqp/MMspZjo9sXVoOpd2Fjy+Ei/lKLn+VPia70cppL6uhRC2bVYajrJQk7ty75s4n0o4ZNsPSqv4kKo+7E/aRzelYsbUcID51d/oEkzHL4ZY+oxxvlt/tY0K2Ar4ynUIWgVYKhvruUOxtblf5zV4lx3tNdMTSBC0qdF1VhY3NS4uPnPhvSo9L/ADcGB51GH605np+lGlVFsZhWseel1b7MFk6vwtPU8cu2phAcBhszaqTqYUUN+eprlx5jWfpJPBYQ5JRxFfEYdaVRKOlKiuWDluyDpudJuFJO3OZBxdlWaqy41SgZgzBkIu3IMWp338SZu4XIsFj6ZXJawNNnR3VXDghb9kgm6g3872kX7aznxy92nw1nld/ZKBbU+uqKpa7EIgBG9+e9r+Em8r4soZjUNIalbUwQkdlwCRdWHfbkfvIbFZJWypswr4ddbVFIpBLlhra7ki2xXnteaOW1qeMOBp4RWWnhAatZ2XTpYdoj5sDt/aNSrWY5bsdKvE5nhOJKxqGvSrBvWVgnshuTpNgpXuPTba/O97To4rLfTqGrna4vbvt3StmmeWFx8s0REhQiIgIiICIiAiIgIiIHk1sZi0wKl8WwRRzJP/LnwmzKvxvQZ6dGoF1rRqq7pz1KLg7dbX+hMmJxm7p8Y7iE4epQrUXV8HUujMBuj3uGY87eG3XwmDPrUMVSrZZZ6oAWtRXdmpMQoOkc7XH5TyE8GY0c5qU8NlwVsO9N2qKq6dHIoeWxv9yDPvThOBqJqYk6qjbX2LufwqOi/YdTJXyswm72fdDhihhabjNyjUUdnpliVNNDuVZrjs35jl/SEz/0lJh9SZCgc9ajXC371HNvM2HnKVxJxLiOJXAq3VLjRRW5F+l/xt428gJJjhE5TQOIz3Z2stOgD8R61COgFzpHcLne0vqT9nLeTPmy6cUHmWc4rPSfbajuPwA2Qf6BYfXeZcm4Zr5w+jCAbe8xvpUd7H+guTN3K8A2ZVEpYYbsefRRzLHwAl4znMk4ZpDC5IVWsRcs1ri/xHvc9AdgLbWsDO/aL83p+Phx3nd1oJw7lnCyg564rVbX0sL/AO2kvTxa/nPKnpDpYXs5VhbKOVyqflVT+soNdmdmOKLF2NyWJJJ7yTzmbLcMMdWpU2bSHZVLd1za/nNOiecu7y76nLfThNLxT9JevbFYYFetnv8AZk3+s+1/ZHFHZKDD1m5EAU2J8CvZc+BufCVHiXKRk1VUplrMgazFSy3JFiVsDyB5DnIgjVsJHRjZuH9xyY3WXdMcUcHV+H7vf1lC/wDmAWK9wdfh8+Xle0rtN2pMGokqw5MpII8iNxOj8I8SNhFWhnzBqT9lS+5UHbS1+aHx5eXKK404VTKqgbCjTSe+m3wnqp/UeHlK7susnVx8f9bvx+fhgyX0g4vLrDFEV07n2b5OP/oNL9gc/wAJxjSeirsjuO1TJCttY9k7hht0vtzAnGK9BqPv8u+Y1JUgqbEG4I5gjcEHoYuEvhM5M+PLWXt8u1ZhgHyypiMUqqEpYcLRUd4HNhb4bfQ+EhMVl9PDUcLUouXx1Z0YOGJJLbm4B9wXte322mpwnx9sKHEZ1o3ZFY72B2tVHVemr633MsmZZbR4foVcTkNNTUsCrElwFJFytydrE7jp4TOyztXdxc0z8eVgGc0DV9T61fW8tF9791+V/DnJKcxyzC08fWxGmoop06yYj11rbEkspZraefXqpl5ybOUzYMaIKlSbBrXK3sHAB902IB8DK2LZ4a8JaIiQzIiICIiAiIgIiIHk8IvPZS+N+M24dZaWFp6qrrqDt7ii5HTdjty25jeTJbdRGWUxm6lM7zPDcLUmqFFVmOyoFU1G7th9SeU4zjsZiOKMQDUBeq50oi8lHPSo6KOZJ8STMeLxmI4hrL7Qz1arHSq+fRVGyjytyuZ2Hg3hROHqd6lmruO2/d/Avco+537gNO2M+3NblzX6YeDeDEyEB8VZ8QRu3RP4Uv8AduZ8BtIP0lYs1K1KmOSLq+bG36KPrOlTknHhJxtW/RUt/tB/vK43d3Xf6XGTPU9kxwLSXAUMVi6490MB/Ko1NbzNh/plNNTD5j6ypm1V1rOzMdKahfoPEWsOYtaXCsTQyNjT+Ln5NW0n7bTm0145vdeZ+S5beXVT9FMNpKviWYdFana3zL7SVyDIsJjnJSpU1J2+yVttYjluG+cpknuDNTYnThmCs6MLty+cvlNS93HxZy5yWLbxjk2Gd3r413DEhbAgAWUWuT03lUWnhaSkU65Q94TWfrqk36Rtain2lZGcldPlY6vmPtKJK4TePlp6jOY52SJZqGD0uWr1Gfe3YsPncm99+ol3yWr/APp8tenW7VWldQTzLKNVM38R2Sf5pzKdA9E9Q6sWvQqh+d3H9ftHJj22n0fLZyzXZWMtdBVpe1KHQsA6tyKHst9ifnaZONOEW4fbXhbthmOzcyhPJWPd3N15c+etjU9U9RU+FnA+RI/pO31cMuOpFMUoZXWzA9QRvM7l03b2/XcUzkvu/N8tXBnF7ZAwTE3fDse0nMpfmyju716+fPX4x4ZbhyrZLtRcn1bn7o38Q+4377V2X7ZR5H8uPL7fozLVoPTDZaE9W41AoAFa/XYTFgsnp4N6lRLtUcAF2NzpFrKO4bDzsL3tORcE8Wtw++jEkth2PaHMoT8Sju7168xvz7ZQqrXVWokMrAEEG4IO4IPUTHLGx3cfL1T/AKzRESq5ERAREQEREBERA8kRn2QUc+QLmC30m6sDZlPWx8eo5GwkvHOJdIsl7VXOHuEMNw+xfCBmci2tyCwHcLABfkN5Y4mNKge+kg2JG3eNiPOTbskkmoyTl3pHwxpYlG6Og+qkg/bT9Z1GVbjzKzj8PrpC70iWHivxj6AH/TJxuq24cunOIbI0/a2V4igm7prAHeb+sT6nb5TmQN5cuDM4GU17VjanUsrHoD8DHwFyD4G/SYOOuHjlNZqmHX9xUYkEfA53ZT3A7kfTpNuO6unD+U4L1dcVSWbg1zh2rPSNm0EA+RDH9BKzLVwpopvTWqL6kqM253Gnb+k0y8PM4P3lbXEGKfG4ZBiGudbEcuigbfNpTJbcZVVqGDDLuwqBjc+8T2T+W3zlTdNBIPSRh4W9R3sr5nSPRnSGCoYvEVtl2F/BFLMfzW+UoWWZe+aVVpYMXZj8lHVm7lH/ADnOhcV4hMiwtPBYE7lRqPXTe7E26s1/zSvJe3S6Px/Bc+Tq9opWGpHHVUX4qjAfNmsf1ndl2nLvR7lhxWINVx2KQ2PexFgPkLn/AGzo+PxiZfTepi2CoouxPQf36AdZjl509r1WU6tfCE48qUKeDrftUXVhZAPeNTcpo7mFr37gb7XnCvOT3FvEb8RViz3WklxTTuHVj/Ebb92w6b3vgLgxcLT9dndNWqVANKMoIRee4Ye+evcNu+Xn8ce7y8v8uXbw5Oo1kBNyeg3P0E636MKWMw1N0zFGSgLGlrBDAm+oBTuE5He2525y8YfCJhhbDIqjuUBf0EzWlMs9zTXDh6bvb6iIlG5ERAREQEREBERATyexA8kZj8uNU68E5pVfxAXVu4VE5MPHYjoRJOIFcpcR+xstPiJfZ3JstS96Tn+Gp8J/hex85YbhxtuDMWLwqYxGTFqrowsVYAg+YMqdXIMVkRLcK1dVPmcJWN18qTndPIm3jJ7VW24/atcYcOHKXL4Zf3Dna3wMfhP8Pcfl57nDvE1N6fs/EADUyNIdtwB0V/AdG6becm8Nxjh8SWocQU2w1QizJWHZYcjpfkV8Ta8hs74JYXqZEQ6HfRqFx/K3Jh57+ctv2rqw5cOXHozamcej9wdeROtRG3CsRcA8tLcmH0PnI7LMrxFLFEPSdVRHBLKQNIRluCfe3tyvMWCzXE5GxWg7oQd6bDb5qw28xYyw4f0hVUH+Joo571Zl+xDS/Vlr5cuf4yb6sFXxGFq1cLgnw6My3qAFRftayRsN+h+kkMLwTisycMyikjWJZ+YvzAXmT4G3nJ1/SGwH7rDqPNyfsEEhcx4vxWNBBqCmp5hBp/MST9CI6slcfxdt/nVifE4Xgmm1PL7VMQw7RO5v0Lke6o6KP7mU7D0K+f17Jd6jm7MeQHUnuUbfYDpNzJ+F8Rmnacerp8zUfbbqVB3bz2HjJ2txLgeEqZp5PavWPvFTsT3tUAtYfhW9vDnI3/uuzq4vTY9OPlaKK0OFMN+/cKiC7MebMeZsOZJ5AeA6TkvF/FdTiN7C6UFPYTvP4ntzbw5D7nUx2PxfFtdQ2qo592moOlR1st+yO9mPmZ0Thfg2jw8oxGeMrVFsQSexTJNhYn3mufePy7y1Me98vOyyy5bqeGjwFwOaRTE50tmFjTpH4eoZx+LuXpzO+w6ZPAe6ezO23y3wwmM1HsREhYiIgIiICIiAiIgIiICIiAiIgRWcFx6o0VZlV9TKltRsrFBuRtq03/teQ+F4gq4csmOUOQoI07E21pUt0I9YqovLZ1NzLbNTEYJMSQaqgsLWbqLEMN+4EA25XECPr+yZ8rJjEV1Xo62sLlQysehKkBlMrGK4BqYEluFsVUonn6tmOkn+YdP5g0mMfwualMphqpICaVVwtuyCKQJUCygszXsSW0m/ZtM2Dp1qFSrUrK6qBWZrsGDdoGkEVWNrKDc2Bubb9Jls8K3CVR8xxGcYQac1w6YlByZqS1B5g0rEeZAMr+IzhKZ/xWCRD4PWT8rk2nSKefYikoWqFZ1Dq7MpGp9aKmkAgWAqU79+q21jNxs7fBqwxSBwl11FrMziiK51LpsoIJF+h6S3V9Ikzn65WOSft6iPdwyH+aq5/wDXT+s2cLn+JP8A0jD00bo1OizsPJnLmdcGZmoV9RQB1uyoSwGrRq1luydI7BtzvccunxXz4qiVMKgKmi1dgzaSEW1wtgbtv5cu+T1T4RZy5drnXMWyLNuICPbFqlT/AN5tKj/xki3yWT2VejEJZs7rbbXSnsL9xdhuOmyjzllxOaviSi0yAwZ9YHNCtVaKlhc2FnD7/hvMOHweLxaH1wN3S3bY9gnS6MOzcsjq9wR8S2NhIuVVnDN7vdmwGIwuUKEyGmtjcsQG3VQpJJ0s1QkOum1777gCY6Xrs0FW6li4VRVDAIhWzatBJuGslRbA312JFpJ4fh2lS1esuwLEhbkAXJK2F9ioYrsRdbAg2EmKdMUgBTAAAsABYADkAByErtrJrwwZdgly9AmH1aRyBJNvAX5Dwm5ESEkREBERAREQEREBERAREQEREBERAREQEREDBWoLWBFZVYHmCARbyPkPpNX9k0O1akgJXSSFA7NgttulgB5ASRiBGtk1BtV05tq2ZhZje5Wzdi+o302vc3vMlbK6NdUWtSRlQWVSoIUWtYX5DYfQTeiBgo0VpACmLbAeNgLC5O5+czxEBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQERED//Z"
+                                                alt="" width="140" height="120">
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="text-center">
+                                            <h4>CARTA DE CONSENTIMIENTO BAJO INFORMACION</h4>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5 class="text-center text-large">CLINICA "ALMENDROS"</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5>Cirujana Oftalmóloga</h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h5 class=" text-center texto-justificado">Dra. Adai Pérez Montesinos</h5>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br>
+                            <div class="text-center">
+                                <div class="card-header">
+                                    <table class="table">
+                                        <tr>
+                                            <td>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">NOMBRE DEL
+                                                        PACIENTE:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">EDAD:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">DOMICILIO:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">REPRESENTANTE
+                                                        LEGAL,
+                                                        FAMILIAR O ALLEGADO:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">EDAD:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">DOMICILIO:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text" id="basic-addon1">EN CALIDAD
+                                                        DE:</span>
+                                                    <input tcype="text" class="form-control" placeholder=""
+                                                        aria-label="Username" name="Hermanos"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div>
+                                <div class="card-header1 text-center text-white" id="indicacion">
+                                    <h4>DECLARO</h4>
+                                </div>
+                                <div class="text-justificado">
+                                    Que la Dra <input type="text" name="" id="" class="col-sm-5">, me ha explicado que
+                                    es
+                                    conveniente proceder <input type="text" name="" id="" class="col-sm-8"> y que, todo
+                                    acto
+                                    médico, diagnóstico o terapéutico, sea quirúrgico o no quirúrgico, lleva implicito
+                                    una serie
+                                    de complicaciones
+                                    mayores o menores a veces potencialmente serias, incluyen cierto riesgo de
+                                    mortalidad y que
+                                    pueden requerir tratamientos complementarios, médicos o quirúrgicos que aumentan su
+                                    estancia
+                                    hospitalaria, dichas complicaciones unas veces son derivadas
+                                    que están recibiendo o de las posibles anomalias anatómicas y/o de la utilización de
+                                    los
+                                    equipos médicos. <br>
+                                    Entre las complicaciones que pueden surgir en <input type="text" name="" id=""> se
+                                    encuentra
+                                    <input type="text" name="" id=""> Por lo que he comprendido las explicaciones que se
+                                    me han
+                                    facilitado en un lenguaje claro y sencillo y que el médico que me ha atendido
+                                    me realizó todas las observaciones y aclaró todas las dudas que le he planteado.
+                                    <br>
+                                    También comprendo que en cualquier momento y sin dar ninguna explicación, puedo
+                                    revocar el
+                                    consentimiento que ahora presto,
+                                    por ello manifiesto que estoy satisfecho (a) con la información recibida y comprendo
+                                    el
+                                    alcance de los riesgos del tratamiento y
+                                    procedimiento.
+                                    <br><br>
+                                    Del mismo modo designo a <input type="text" name="" id=""> para que exclusivamente
+                                    el (ella)
+                                    reciba información sobre mi estado de salud, diagnóstico, tratamiento y/o pronóstico
+                                    y en
+                                    tales condiciones. <br><br>
+                                    <div class="card-header1 text-center text-white id=" indicacion">
+                                        <h4>DECLARO</h4>
+                                    </div>
+                                    <br>En que se me realicen los procedimientos de diagnóstico y tratamientos que me
+                                    fueron
+                                    explicados y que me doy por enterado
+                                    en mi declaración. Así como, me reservo expresamente el derecho de revocar mi
+                                    consentimiento
+                                    en cualquier momento antes
+                                    de que el y/o los procedimientos, objeto de este documento sean una realidad.
+                                    <br><br>
+                                    Oaxaca, Oax., a los <input type="text" name="" id="" class="col-sm-1"> dias del mes
+                                    de
+                                    <input type="text" name="" id="" class="col-sm-2"> del año 20 <input type="text"
+                                        name="" id="" class="col-sm-1">
+                                </div>
+                                <br>
+                                <div class="card-header text-center" id="indicacion">
+                                    <br>
+                                    <h4></h4>
+                                </div>
+                                <br>
+                                <div class="text-justificado">
+                                    (En caso de que el paciente o su representante revoque el consentimiento) <br>
+                                    REVOCO EL CONSENTIMIENTO PRESENTADO EN FECHA <input type="text" name="" id=""
+                                        class="col-sm-5">
+                                    <br>
+                                    Y NO DESEO PROSEGUIR EL TRATAMIENTO QUE DOY CON ESTA FECHA POR FINALIZADO, EXIMIENDO
+                                    DE TODA
+                                    RESPONSABILIDAD AL MEDICO TRATANTE, UNA VEZ QUE ME HA EXPLICADO LOS ALCANCES
+                                    CLÌNICOS DE LA
+                                    SUSPENSIÒN DEL ACTO MENCIONADO.
+                                </div>
+                                <br><br>
+                                <div class="card-header text-center" id="indicacion">
+                                    <br>
+                                    <h4></h4>
+                                </div>
+                                <br>
+                                <div class="text-justificado">
+                                    (En caso de que el paciente o su representante revoque el consentimiento) <br>
+                                    NIEGO LA AUTORIZACION A QUE ME REALICEN LOS PROCEDIMIENTOS DE DIAGNÒSTICO Y
+                                    TRATAMIENTO QUE
+                                    SE ME FUERON EXPLICADOS Y QUE DOY POR ENTERADO EN MI DECLARACIÒN.
+                                </div>
+                                <br>
+                                <div class="card-header text-center" id="indicacion">
+                                    <br>
+                                    <h4></h4>
+                                </div>
+                                <!--botones para guardar -->
+                                <br>
+
+                                <div class="modal-footer">
+                                    <a class="btn btn-primary" href="/notaC" role="button">Siguiente</a>
+                                    <button id="insertar" type="button" class="btn btn-secondary">Guardar</button>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <%- include ('../plantillas/footer') %>

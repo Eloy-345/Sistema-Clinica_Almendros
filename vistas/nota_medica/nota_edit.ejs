@@ -1,0 +1,91 @@
+<%- include ('../plantillas/head', {'titulo': 'Nota Medica' }) %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <%- include ('../plantillas/body') %>
+    <script src="js/nota.js"> </script>
+    <!--encabezado-->
+    <div class="container">
+      <div class="card">
+        <div class="card-body row justify-content-center">
+          <div class="col-md-7 col-lg-8">
+            <table>
+              <tr>
+                <td>
+                  <div class="text-center">
+                    <img class="d-block mx-auto mb-4" src="assets/images/111.jpg" alt="" height="160" width="180">
+                  </div>
+                </td>
+                <td>
+                  <h4 style="font-size: 30px; text-align: center;">CLINICA "ALMENDROS"</h4>
+                </td>
+              </tr>
+            </table>
+            <br><br>
+            <div class="text-center">
+              <div class="card-header">
+                <h4>NOTA MEDICA</h4>
+              </div>
+            </div>
+            <br>
+            <div class="modal-body">
+              <div class="text-center">
+                <div class="card-header">
+                  <Table class="table">
+                    <tr>
+                      <td>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">PACIENTE:</span>
+                          <input type="text" class="form-control" placeholder="" aria-label="Username" id="nombre">
+                        </div>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">MEDICO:</span>
+                          <input tcype="text" class="form-control" placeholder="" aria-label="Username" name="medico"
+                            aria-describedby="basic-addon1" id="medico" value="Dr. Ulises Pérez Sánchez">
+                        </div>
+                      <td>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">EDAD:</span>
+                          <input tcype="text" class="form-control" placeholder="" aria-label="Username" name="edad"
+                            aria-describedby="basic-addon1" id="edad">
+                        </div>
+                        <div class="input-group mb-3">
+                          <span class="input-group-text" id="basic-addon1">FECHA:</span>
+                          <input type="date" class="form-control" placeholder="" aria-label="Username" name="fecha"
+                            aria-describedby="basic-addon1" id="fecha" alue="2022-01-01" min="2022-01-01"
+                            max="2050-12-31">
+                        </div>
+                      </td>
+                    </tr>
+
+                  </Table>
+                </div>
+              </div>
+
+              <br>
+              <div>
+                <div class="card-header text-center" id="indicacion">
+                  <h4>DESCRIPCIÓN</h4>
+                </div>
+                <div id="seccion">
+                  <p id="texto3"></p>
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label"></label>
+                    <textarea class="form-control" type="" id="esp1" rows="20"
+                      placeholder="INGRESA AQUÍ TUS OBSERVACIONES"></textarea>
+                  </div>
+                </div>
+              </div>
+              <br>
+            </div>
+            <div class="modal-footer">
+              <a class="btn btn-secondary" href="/pacientes" role="button">Cancelar</a>
+              <button id="insertar" type="button" class="btn btn-primary">Guardar todo</button>
+              <a class="btn btn-danger" href="/download" role="button">Generar PDF</a>
+            </div>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ('../plantillas/footer') %>

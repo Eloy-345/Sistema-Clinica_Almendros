@@ -1,0 +1,81 @@
+<div class="p-3 mb-2 bg-body text-dark"></div>
+<%- include ('../plantillas/head', {'titulo': 'Autos' }) %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <%- include ('../plantillas/body') %>
+    <script src="js/auto.js"> </script>
+    <div class="container">
+      <h1>Registro de Autos</h1>
+      <!-- Button trigger modal 
+    <a href="/pacientes" type="button" class="btn btn-primary"><i class="fas fa-plus-square"></i></a>
+
+    -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        REGISTRAR
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label>Marca</label>
+              <input type="text" id="marca"> <br></br>
+              <label>Modelo</label>
+              <input type="text" id="modelo"> <br></br>
+              <label>Precio</label>
+              <input type="text" id="precio"> <br></br>
+              <label>Combustible</label>
+              <input type="text" id="combustible"> <br></br>
+            </div>
+            <div class="modal-footer">
+              <button id="cerrar" type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button id="insertar" type="button" class="btn btn-primary">Insertar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-14">
+          <div class="card-body">
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <td>id</td>
+                  <td>Marca</td>
+                  <td>Modelo</td>
+                  <td>Precio</td>
+                  <td>Combustible</td>
+                </tr>
+              </thead>
+              <tbody>
+                <% if (alumnos.length>0){ %>
+                  <% alumnos.forEach(a=> { %>
+                    <tr>
+                      <th> <input id="clave" type="hidden" name="id" value="<%= a.id %>"> </th>
+                      <th> <input id="marca" type="text" name="nombre" value="<%= a.marca %>"> </th>
+                      <th> <input id="modelo" type="text" name="apellidos" value="<%= a.modelo %>"></th>
+                      <th> <input id="precio" type="text" name="semestre" value="<%= a.precio %>"></th>
+                      <th> <input id="combustible" type="text" name="matricula" value="<%= a.combustible %>"></th>
+                      <th><input id="update" type="submit" class="btn btn-success" value="Actualizar"></th>
+                      <th><input id="delete" type="submit" class="btn btn-danger" value="Eliminar"></th>
+                      <th><input id="detalle" type="submit" class="btn btn-warning" value="Ver"></th>
+                    </tr>
+                    <% }) %>
+                      <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" id="verdetalle">
+
+    </div>
+    </div>
+    <%- include ('../plantillas/footer') %>
+      </div>

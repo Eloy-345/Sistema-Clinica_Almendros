@@ -1,0 +1,11 @@
+<%- include ('./plantillas/head', {'titulo': 'Nota Medica' }) %>
+    <%- include ('./plantillas/body') %>
+    <br><br><br>
+    <div class="text-center">
+        <div class="container">
+            <h3>Descargar archivo</h3>
+
+            <a href="<%= path %>" class="btn btn-danger" download>Descargar</a>
+        </div>
+    </div>
+<%- include ('./plantillas/footer') %>

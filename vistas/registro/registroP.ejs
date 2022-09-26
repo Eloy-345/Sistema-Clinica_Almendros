@@ -1,0 +1,132 @@
+<%- include ('../plantillas/head', {'titulo': 'Eventos' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <!--Utilice el componente de carousel de bootstrap para mostrar las imagnes -!--->
+        <script src="js/agendas.js"> </script>
+        <script src="js/funciones/formulario.js"></script>
+        <script src="js/funciones.js"></script>
+
+        <br>
+        <div class="container">
+            <div style="text-align:center;">
+                <header>
+                    <nav>
+                        <ul id="menu">
+                            <li class="tab active"><a href="/registro">Agenda</a></li>
+                            <li class="tab"><a href="/agenda">Consultas</a></li>
+                            <li style="text-align:left; padding-left:6px">
+                                <a id="insertar" class="btn btn-primary float-left" href="/calenda"><i
+                                        class="fa-solid fa-calendar-days"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="text-aling:center">
+                <table class="table table-striped" align="center" style="margin: 0 auto;" style="border:120px ;">
+                    <thead>
+                        <tr style="background-color: hsl(265, 91%, 78%);">
+                            <th colspan="7" class="text-center text-dark"> Mis eventos</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Fecha</td>
+                            <td>Hora</td>
+                            <td>Titulo</td>
+                            <td>Descripción</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (agendas.length>0){ %>
+                            <% agendas.forEach(a=> { %>
+                                <tr>
+                                    <th style="background-color:rgb(0, 77, 29);"> <input id="clave" type="hidden"
+                                            name="id" value="<%= a.id %>"> </th>
+                                    <th>
+                                        <%= a.fecha_i%>
+                                    </th>
+                                    <th>
+                                        <%= a.hora_i %>
+                                    </th>
+                                    <th>
+                                        <%= a.titulo %>
+                                    </th>
+                                    <th>
+                                        <%= a.descripcion %>
+                                    </th>
+                                    <th><a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                                class="fas fa-trash-alt"></i></a>
+                                        <input type="submit" class="btn btn-danger" value="Eliminar">
+                                        <a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                                class="fas fa-trash-alt"></i></a>
+
+                                    </th>
+
+                                    <!--th> <input id="fecha_f" type="text" name="semestre" value="<%= a.fecha_f %>"></th>
+                  <th> <input id="hora_f" type="text" name="matricula" value="<%= a.hora_f %>"></th>
+                  <th><input id="update" type="submit" class="btn btn-success" value="Actualizar"></th>                
+                  <th><input id="detalle" type="submit" class="btn btn-warning" value="Ver"></th-->
+                                </tr>
+                                <% }) %>
+                                    <% } %>
+                    </tbody>
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+            <!--condicion para añadir evento-->
+            <div class="row g-3">
+                <div class="col-sm-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="apoyoFam" value="SI" id="checkShow3"
+                            onchange="javascript:showContent3()">
+                        <label class="form-check-label">
+                            <span class="form-label">Añadir nuevo evento</span>
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="operacion1" class="contenedor-formulario" style="display: none;">
+                <div class="wrap">
+                    <form action="" class="formulario" name="formulario_registro" method="get">
+                        <div>
+                            <div class="input-group">
+                                <input type="text" id="fecha_i" name="fecha_i">
+                                <label class="label" for="nombre">Fecha inicio:</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="hora_i" name="hora_i">
+                                <label class="label" for="nombre">Hora inicio:</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="fecha_f" name="fecha_f">
+                                <label class="label" for="nombre">Fecha final:</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="hora_i" name="hora_i">
+                                <label class="label" for="nombre">Hora final:</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="titulo" name="titulo">
+                                <label class="label" for="pass2">Agregar titulo:</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="descripcion" name="descripcion">
+                                <label class="label" for="pass2">Descripción:</label>
+                            </div>
+                            <button id="insertar" type="button" class="btn btn-primary">Añadir evento</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%- include ('../plantillas/footer') %>

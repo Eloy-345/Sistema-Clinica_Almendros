@@ -1,0 +1,162 @@
+<%- include ('../plantillas/head', {'titulo': 'Pacientes' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <script src="js/paciente.js"> </script>
+        <script src="js/receta.js"></script>
+        <br>
+        <br>
+        <!--MODAL PARA INSERTAR PRODUCTOS-->
+        <div class="container">
+            <div class="card">
+                <div class="card-body row justify-content-center">
+                    <div class="col-md-7 col-lg-12">
+                        <a href="/pacientes" type="button" class="btn btn-primary redondo"><i
+                                class="fa-solid fa-plus"></i></a>
+                        <!--TABLAS-->
+                        <!---->
+                        <div class="row g-5 table-responsive">
+                            <div class="col-md-14">
+                                <div class="card-body">
+                                    <table id="users" class="table table-bordered table-striped text-center mt-4">
+                                        <thead>
+                                            <tr class="text-white" style="background-color:#6200ee;">
+                                                <td></td>
+                                                <td width="10%">Expediente</td>
+                                                <td width="30%">Paciente</td>
+                                                <td width="20%">Accion</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if (paciente.length>0){ %>
+                                                <% paciente.forEach(a=> { %>
+                                                    <tr>
+                                                        <th width="1%"> <input id="clave" type="hidden" name="id"
+                                                                value="<%= a.id %>"><%= a.id %> </th>
+                                                        <th style="text-align: justify;" width="10%">
+                                                            <%= a.expediente %>
+                                                        </th>
+                                                        <th style="text-align: justify;" width="30%">
+                                                            <%= a.nombre %>
+                                                        </th>
+                                                        <th width="20%">
+                                                            <button type="submit" id="detalle1" class="btn btn-primary"
+                                                                value="Editar" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModals">
+                                                                Expediente
+                                                            </button>
+                                                            <button type="submit" id="detalle" class="btn btn-success"
+                                                                value="Editar" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModal">
+                                                                Nota
+                                                            </button>
+                                                            <a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                                                    class="fas fa-trash-alt"></i></a>
+                                                                    
+
+
+                                                            <!-- mostrar datos del paciente -->
+                                                            <div class="modal fade" id="exampleModals" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div
+                                                                    class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header"
+                                                                            style="background-color:#161414 ;">
+                                                                            <p>
+                                                                                <a class="btn btn-danger" type="button"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close">Cancelar</a>
+                                                                            </p>
+                                                                            <h5 class="modal-title text-center text-white"
+                                                                                id="exampleModalLabel">
+                                                                                Expediente Médico
+                                                                            </h5>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary"></button>
+
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="container-fluid"
+                                                                                id="verdetalle1">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!--mostrar nota medica-->
+                                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div
+                                                                    class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header" style="background-color:#161414 ;">
+                                                                            <p>
+                                                                                <a class="btn btn-danger" type="button"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close">Cancelar</a>
+                                                                            </p>
+                                                                            <h5 class="modal-title text-center text-white"
+                                                                                id="exampleModalLabel">
+                                                                                Nota Clinica
+                                                                            </h5>
+                                                                            <button id="update" type="submit"
+                                                                                class="btn btn-primary">Actualizar</button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="container-fluid"
+                                                                                id="verdetalle" style="text-align: justify;" >
+
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+
+                                                    <% }) %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <td>
+                                                    <div class="container">
+                                                        <a href="/pdfnotaR"> <button id="" name="" class="btn btn-danger" value="DOWNLOAD INVOICE">Generar
+                                                            Generar PDF Nota</button></a>
+                                                </td>
+                                                <td>
+                                                    <div class="container">
+                                                        <a href="/expediente"> <button id="" name="" class="btn btn-danger" value="DOWNLOAD INVOICE">Generar
+                                                            Generar PDF Expediente</button></a>
+                                                </td>
+                                                
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#users').DataTable({
+
+                });
+            });
+
+        </script>
+
+
+        <%- include ('../plantillas/footer') %>

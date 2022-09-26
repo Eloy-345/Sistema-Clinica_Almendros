@@ -1,0 +1,308 @@
+<%- include ('../plantillas/head', {'titulo': 'Agenda Oftamologia' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <script src="js/ajax/agenda_cal2.js"> </script>
+        <script src="js/funciones/ejercicio.js"></script>
+        <script src="js/funciones.js"></script>
+        <div class="container"><br><br>
+            <div class="card">
+                <div class="card-body row justify-content-center">
+                    <!--formulario-->
+                    <div class="col-md-7 col-lg-12">
+                        <table class="table" align="center" style="margin: 0 auto;" style="border:120px ;">
+                            <thead>
+                                <!--tr style="background-color:#24419e;">
+                                    <th colspan="7" class="text-center text-white"> Mis eventos</th>
+                                </tr-->
+                                <tr>
+                                    <th colspan="4">
+                                        <div>
+                                            <header>
+                                                <nav>
+                                                    <ul id="menu">
+                                                        <li class="tab active"><a href="/agenda_cal"
+                                                                class="rd">Citas</a></li>
+                                                        <li class="tab"><a href="/agenda" class="rd">Reporte</a></li>
+                                                    </ul>
+                                                </nav>
+                                            </header>
+                                        </div>
+                                    <th colspan="2">
+                                        <div>
+                                            <button type="button" class="btn btn-primary redondo" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </button>
+
+                                            <a class="btn btn-primary redondo href=" /calenda"><i
+                                                    class="fa-solid fa-calendar-days"></i></a>
+                                        </div>
+
+                                    </th>
+                                </tr>
+                            </thead>
+                        </table>
+
+                        <div class="row mt-5">
+                            <div class="col-md-14">
+                                <div class="card-body">
+                                    <table id="users" class="table" align="center" style="margin: 0 auto;"
+                                        style="border:120px ;">
+                                        <thead>
+                                            <tr style="background-color: #6200ee;" class="text-white">
+                                                <th></th>
+                                                <th>No.</th>
+                                                <th>Inicio</th>
+                                                <th>Fin</th>
+                                                <th>Paciente</th>
+                                                <th>Razon de cita</th>
+                                                <th>Estatus</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if (alumnos.length>0){ %>
+                                                <% alumnos.forEach(a=> { %>
+                                                    <tr>
+                                                        <th style="background-color:#001448;"></th>
+                                                        <th> <input id="clave" type="hidden" name="id"
+                                                                value="<%= a.id %>">
+                                                            <%= a.id %>
+                                                        </th>
+                                                        <th>
+                                                            <!--input id="fecha_i" type="text" name="fecha_i" value="<%= a.fecha_i %>"-->
+                                                            <%= a.fecha_i %> <br>
+                                                                <%= a.hora_i %>
+                                                        </th>
+                                                        <th>
+                                                            <!--input id="hora_i" type="text" name="hora_i" value="<%= a.hora_i %>"-->
+                                                            <%= a.fecha_f %> <br>
+                                                                <%= a.hora_f %>
+                                                        </th>
+                                                        <th>
+                                                            <!---input id="fecha_f" type="text" name="fecha_f" value="<%= a.fecha_f%>"-->
+                                                            <%= a.titulo%>
+                                                        </th>
+                                                        <th>
+                                                            <!--input id="hora_f" type="text" name="hora_f" value="<%= a.hora_f %>"-->
+                                                            <%= a.descripcion%>
+                                                        </th>
+                                                        <th>
+                                                            <button type="submit" class="btn btn-warning" value="Editar"
+                                                                data-bs-toggle="modal" data-bs-target="#exampleModals">
+                                                                <i class="fas fa-edit"></i>
+                                                            </button>
+                                                            <a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                                                    class="fas fa-trash-alt"></i></a>
+                                                            <!-- Editar paciente -->
+                                                            <div class="modal fade" id="exampleModals" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div
+                                                                    class="modal-dialog modal-dialog-scrollable modal-lg">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalLabel">
+                                                                                    Editar evento</h5>
+                                                                                <button type="button" class="btn-close"
+                                                                                    data-bs-dismiss="modal"
+                                                                                    aria-label="Close"></button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Fecha
+                                                                                        inicial</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="fecha_i"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.fecha_i %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Hora
+                                                                                        inicial</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="hora_i"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.hora_i %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Fecha
+                                                                                        final</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="fecha_f"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.fecha_f %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Hora
+                                                                                        final</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="hora_f"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.hora_f %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Paciente</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="titulo"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.titulo %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Descripción</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text"
+                                                                                            id="descripcion"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.descripcion %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Costo</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="costo"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.costo %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="mb-4 row">
+                                                                                    <label for="staticEmail"
+                                                                                        class="col-sm-2 col-form-label">Medico</label>
+                                                                                    <div class="col-sm-10">
+                                                                                        <input type="text" id="medico"
+                                                                                            class="form-control"
+                                                                                            value="<%= a.medico %>">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button id="cerrar" type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-dismiss="modal">Cerrar</button>
+                                                                                <button id="update" type="submit"
+                                                                                    class="btn btn-primary">Actualizar
+                                                                                    evento</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+
+                                                    <% }) %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Agegar evento</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="mb-4 row">
+                                                        <label for="staticEmail"
+                                                            class="col-sm-2 col-form-label">Asunto</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="descripcion"
+                                                                placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4 row">
+                                                        <label for="staticEmail" class="col-sm-2 col-form-label">Fecha y
+                                                            Hora
+                                                            inicial</label>
+                                                        <div class="col-sm-5">
+                                                            <input type="date" id="fecha_i" name="fecha_i"
+                                                                class="form-control" value="2022-1-1" min="2022-01-01"
+                                                                max="2050-12-31">
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <input type="time" id="hora_i" name="hora_i"
+                                                                class="form-control" value="00:00" min="01:00"
+                                                                max="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4 row">
+                                                        <label for="staticEmail" class="col-sm-2 col-form-label">Fecha y
+                                                            Hora
+                                                            final</label>
+                                                        <div class="col-sm-5">
+                                                            <input type="date" id="fecha_f" name="fecha_f"
+                                                                class="form-control" value="2022-1-1" min="2022-01-01"
+                                                                max="2050-12-31">
+                                                        </div>
+                                                        <div class="col-sm-5">
+                                                            <input type="time" id="hora_f" name="hora_f"
+                                                                class="form-control" value="00:00" min="01:00"
+                                                                max="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4 row">
+                                                        <label for="staticEmail"
+                                                            class="col-sm-2 col-form-label">Paciente:</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="titulo"
+                                                                placeholder="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-4 row">
+                                                        <label for="staticEmail"
+                                                            class="col-sm-2 col-form-label ">Costo:</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="text" class="form-control monto6" id="costo"
+                                                                placeholder="$" onchange="sumar6();"
+                                                                onkeyup="sumar6();">
+                                                        </div>
+                                                        <label for="staticEmail"
+                                                            class="col-sm-2 col-form-label">Medico:</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" id="medico"
+                                                                placeholder="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button id="cerrar" type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal" href="/agenda_cal">Cerrar</button>
+                                                    <button id="insertar" type="button"
+                                                        class="btn btn-primary">Insertar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#users').DataTable();
+            });
+        </script>
+        <%- include ('../plantillas/footer') %>

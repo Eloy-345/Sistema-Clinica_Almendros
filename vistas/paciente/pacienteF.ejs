@@ -1,0 +1,286 @@
+<%- include ('../plantillas/head', {'titulo': 'Pacientes Fisio' }) %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <%- include ('../plantillas/body') %>
+        <script src="js/ajax/pacienteF.js"> </script>
+        <br>
+        <br>
+        <!--MODAL PARA INSERTAR PRODUCTOS-->
+        <div class="container">
+            <!-- Button trigger modal -->
+            <!--button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fas fa-plus-square"></i>
+            </button-->
+            <div class="card">
+                <div class="card-body row justify-content-center">
+                    <div class="col-md-7 col-lg-12">
+                        <a href="/pacienteTerapia" type="button" class="btn btn-primary redondo"><i class="fa-solid fa-plus"></i></a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Agregar paciente</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label for="exampleFormControlInput1" class="form-label">No. Expediente</label>
+                                        <input class="form-control" placeholder="" type="text" id="ide">
+                                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="">
+                                        <label for="exampleFormControlInput1" class="form-label">Fecha</label>
+                                        <input type="email" class="form-control" id="fecha" placeholder="">
+                                        <label for="exampleFormControlInput1" class="form-label">Edad</label>
+                                        <input type="text" class="form-control" id="edad" placeholder="">
+                                        <label for="state" class="form-label"> Sexo</label>
+                                        <select class="form-select" aria-label="Default select example" id="sexo"
+                                            name="sexo">
+                                            <option selected>Seleccione</option>
+                                            <option value="masculino">Masculino</option>
+                                            <option value="femenino">Femenino</option>
+                                            <option value="otro">Otro</option>
+                                            <option value="especifica">No especifica</option>
+                                        </select>
+                                        <label for="exampleFormControlInput1" class="form-label">Religión</label>
+                                        <input class="form-control" placeholder="" type="text" id="escolaridad">
+                                        <label for="estado" class="form-label">Estado civil</label>
+                                        <select class="form-select" aria-label="Default select example" id="estado"
+                                            name="estadoCivil">
+                                            <option selected>Seleccione</option>
+                                            <option value="Soltero">Solter@</option>
+                                            <option value="Casado">Casad@</option>
+                                            <option value="Divorciado">Divorciad@</option>
+                                            <option value="Divorciado">Unión Libre</option>
+                                            <option value="Divorciado">Viud@</option>
+                                        </select>
+                                        <label for="exampleFormControlInput1" class="form-label">Lugar de origen</label>
+                                        <input class="form-control" placeholder="" type="text" id="ocupacion">
+                                        <label for="exampleFormControlInput1" class="form-label">Ocupación</label>
+                                        <input class="form-control" placeholder="" type="text" id="ocupacion">
+                                        <label for="exampleFormControlInput1" class="form-label">Domicilio</label>
+                                        <input class="form-control" placeholder="" type="text" id="
+                            <label for=" exampleFormControlInput1" class="form-label">Teléfono</label>
+                                        <input type="text" class="form-control" id="telefono" placeholder="">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                            aria-label="Close" href="/paciente">Cerrar</button>
+                                        <button id="insertar" type="button" class="btn btn-primary">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--TABLAS-->
+                        <!---->
+                        <div class="row g-5 table-responsive">
+                            <div class="col-md-14">
+                                <div class="card-body">
+                                    <table id="users" class="table table-bordered table-striped text-center mt-4">
+                                        <thead>
+                                            <tr class="text-white" style="background-color:#6200ee;">
+                                                <td></td>
+                                                <td>Paciente</td>
+                                                <td>Accion</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% if (paciente.length>0){ %>
+                                                <% paciente.forEach(a=> { %>
+                                                    <tr>
+                                                        <th> <input id="clave" type="hidden" name="id"
+                                                                value="<%= a.id %>"> </th>
+                                                       <th>
+                                                            <%= a.nombre %>
+                                                        </th>
+                                                        <th>
+                                                            <button type="submit" id="detalle" class="btn btn-warning"
+                                                                value="Editar" data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModals">
+                                                                <i class="fa-solid fa-eye"></i>
+                                                            </button>
+                                                            <!--input type="submit" class="btn btn-danger" value="Eliminar"-->
+                                                            <a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                                                    class="fas fa-trash-alt"></i></a>
+
+
+                                                            <!-- mostrar paciente -->
+                                                            <div class="modal fade" id="exampleModals" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-xl">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel">
+                                                                                Información del paciente</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="container-fluid"
+                                                                                id="verdetalle">
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button  type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close">Cerrar</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger value="Editar"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModalss">
+                                                                                Expediente completo
+                                                                            </button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary" value="Editar"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#exampleModalss">
+                                                                                Editar
+                                                                            </button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- Editar paciente -->
+                                                            <div class="modal fade" id="exampleModalss" tabindex="-1"
+                                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                                <div
+                                                                    class="modal-dialog modal-dialog-scrollable modal-lg">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalLabel">Editar
+                                                                                paciente</h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"
+                                                                                aria-label="Close"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Indentificación</label>
+                                                                            <input class="form-control" placeholder=""
+                                                                                type="text" id="ide"
+                                                                                value="<%= a.ide %>">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Nombre</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="nombre" value="<%= a.nombre %>"
+                                                                                placeholder="">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Edad</label>
+                                                                            <input type="email" class="form-control"
+                                                                                id="email" value="<%= a.edad %>"
+                                                                                placeholder="name@example.com">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Teléfono</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="telefono" value="<%= a.telefono %>"
+                                                                                placeholder="">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Edad</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="edad" value="<%= a.edad %>">
+                                                                            <label for="state" class="form-label">
+                                                                                Sexo</label>
+                                                                            <select class="form-select"
+                                                                                aria-label="Default select example"
+                                                                                id="sexo" value="<%= a.sexo %>"
+                                                                                name="sexo">
+                                                                                <option selected>Seleccione</option>
+                                                                                <option value="masculino">Masculino
+                                                                                </option>
+                                                                                <option value="femenino">Femenino
+                                                                                </option>
+                                                                                <option value="otro">Otro</option>
+                                                                                <option value="especifica">No especifica
+                                                                                </option>
+                                                                            </select>
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Escolaridad</label>
+                                                                            <input class="form-control" placeholder=""
+                                                                                type="text" id="escolaridad"
+                                                                                value="<%= a.escolaridad %>">
+                                                                            <label for="estado"
+                                                                                class="form-label">Estado
+                                                                                civil</label>
+                                                                            <select class="form-select"
+                                                                                aria-label="Default select example"
+                                                                                id="estado" name="estadoCivil"
+                                                                                value="<%= a.estado %>">
+                                                                                <option selected>Seleccione</option>
+                                                                                <option value="Soltero">Solter@</option>
+                                                                                <option value="Casado">Casad@</option>
+                                                                                <option value="Divorciado">Divorciad@
+                                                                                </option>
+                                                                                <option value="Divorciado">Unión Libre
+                                                                                </option>
+                                                                                <option value="Divorciado">Viud@
+                                                                                </option>
+                                                                            </select>
+                                                                            <label for="dominancia"
+                                                                                class="form-label">Dominancia</label>
+                                                                            <select class="form-select"
+                                                                                aria-label="Default select example"
+                                                                                id="dominancia" name="dominancia"
+                                                                                value="<%= a.dominancia %>">
+                                                                                <option selected>Seleccione</option>
+                                                                                <option value="izquierda">Izquierda
+                                                                                </option>
+                                                                                <option value="derecha">Derecha</option>
+                                                                                <option value="ambidiestro">Ambidiestro
+                                                                                </option>
+                                                                            </select>
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Ocupación</label>
+                                                                            <input class="form-control" placeholder=""
+                                                                                type="text" id="ocupacion"
+                                                                                value="<%= a.ocupacion %>">
+                                                                            <label for="exampleFormControlInput1"
+                                                                                class="form-label">Residencia</label>
+                                                                            <input class="form-control" placeholder=""
+                                                                                type="text" id="residencia"
+                                                                                value="<%= a.residencia %>">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button href="/ajustes" type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-dismiss="modal"
+                                                                                aria-label="Close">Cerrar</button>
+                                                                            <button id="update" type="submit"
+                                                                                class="btn btn-primary"
+                                                                                value="Actualizar">Editar</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+                                                    <% }) %>
+                                                        <% } %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+        <script>
+            $(document).ready(function () {
+                $('#users').DataTable();
+            });
+        </script>
+
+
+        <%- include ('../plantillas/footer') %>

@@ -1,0 +1,128 @@
+<%- include ('../plantillas/head', {'titulo': 'Ajustes' }) %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <%- include ('../plantillas/body') %>
+    <script src="js/ajustes.js"> </script>
+    <br>
+    <br>
+    <div class="container">
+      <div class="card">
+        <div class="card-body row justify-content-center">
+          <div class="col-md-8 col-lg-8">
+            <br>
+            <!--label for="exampleColorInput" class="form-label">Color picker</label>
+            <input type="color" class="form-control form-control-color" id="exampleColorInput" value="#563d7c"
+              title="Choose your color"-->
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Mi Perfil
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row mt-4">
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <div style="text-align:center;" align="center">
+                            <table align="center" style="margin: 0 auto;"
+                              class="table table-responsive table-bordered table-striped text-center mt-8" width="20%">
+                              <thead>
+                                <tr>
+                                  <h4 class="modal-title">Mi Información
+                                </tr>
+                                <tr class="text-dark" >
+                                  <td class="texto-justificado"><span>ID:</span></td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% if (ajustes.length>0){ %>
+                                  <% ajustes.forEach(a=> { %>
+                                    <tr width="20%">
+                                      <th class="texto-justificado"> <input id="clave" type="hidden" name="id"
+                                          value="<%= a.id %>" width="20%">
+                                        <!--th> <input id="clave" type="hidden" name="ides" value="<%= a.ide %>"> </th-->
+                                        <%= a.id %>
+                                          <!-- Modal -->
+                                          <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel"><span> Editar
+                                                      Contraseña</span></h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                  <label for="exampleFormControlInput1"
+                                                    class="form-label">Usuario</label>
+                                                  <input type="text" class="form-control" id="username" placeholder=""
+                                                    type="text" name="fechas" value="<%= a.username %>">
+                                                  <label for="exampleFormControlInput1"
+                                                    class="form-label">Contraseña</label>
+                                                  <input type="email" class="form-control" id="password" type="text"
+                                                    name="nombres" value="<%= a.password %>">
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button href="/ajustes" type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal" aria-label="Close">Cerrar</button>
+                                                  <button id="update" type="submit" class="btn btn-primary"
+                                                    value="Actualizar">Editar</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                      </th>
+
+
+                                    </tr>
+                                    <tr class="text-dark">
+                                      <td class="texto-justificado">
+                                        <span>Usuario:</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="texto-justificado">
+                                        <%= a.username %>
+                                      </th>
+                                    </tr>
+                                    <tr class="text-dark">
+                                      <td class="texto-justificado">
+                                        <span>Contraseña:</span>
+                                      </td>
+                                    </tr>
+                                    <tr>
+                                      <th class="texto-justificado">
+                                        <%= a.password %>
+                                      </th>
+                                    </tr>
+                                    <tr>
+                                      <td>
+                                        <button type="submit" class="btn btn-primary" value="Editar"
+                                          data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                          EDITAR INFORMACION
+                                        </button>
+
+                                      </td>
+                                    </tr>
+                                    <% }) %>
+                                      <% } %>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ('../plantillas/footer') %>

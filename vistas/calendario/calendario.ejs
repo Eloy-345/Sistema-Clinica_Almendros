@@ -1,0 +1,99 @@
+<%- include ('../plantillas/head', {'titulo': 'Medicos' }) %>
+    <%- include ('../plantillas/body') %>
+
+        <!-- Mobiscroll JS and CSS Includes -->
+        <link rel="stylesheet" href="css/estilos/estilo.css">
+        <link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+        <script src="js/mobiscroll.javascript.min.js"></script>
+        <div class="container">
+            <div mbsc-page class="demo-customizing-header">
+                <div style="height:100%">
+                    <div class="md-custom-header">
+                        <div id="demo-custom-header"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            mobiscroll.setOptions({
+                locale: mobiscroll.localeEs,                        // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+                theme: 'ios',                                       // Specify theme like: theme: 'ios' or omit setting to use default
+                themeVariant: 'light'                               // More info about themeVariant: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#opt-themeVariant
+            });
+
+            var currentDate = new Date(),
+                calendar = mobiscroll.eventcalendar('#demo-custom-header', {
+                    view: {                                         // More info about view: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#opt-view
+                        agenda: { type: 'month' }
+                    },
+                    onSelectedDateChange: function (event, inst) {  // More info about onSelectedDateChange: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#event-onSelectedDateChange
+                        currentDate = event.date;
+                    },
+                    renderHeader: function () {                     // More info about renderHeader: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#opt-renderHeader
+                        return '<div mbsc-calendar-nav class="md-custom-header-nav"></div>' +
+                            '<div class="md-custom-header-controls">' +
+                            '<button id="nav-to-prev-page" mbsc-button data-variant="flat" data-icon="material-arrow-back" class="md-custom-header-button"></button>' +
+                            '<div mbsc-calendar-today class="md-custom-header-today"></div>' +
+                            '<button id="nav-to-next-page" mbsc-button data-variant="flat" data-icon="material-arrow-forward" class="md-custom-header-button"></button>' +
+                            '</div>' +
+                            '<div class="md-custom-header-view">' +
+                            '<label><input data-icon="material-view-day" mbsc-segmented type="radio" name="view" value="agenda" class="md-view-change" checked></label>' +
+                            '<label><input data-icon="calendar" mbsc-segmented type="radio" name="view" value="calendar" class="md-view-change"></label>' +
+                            '</div>';
+                    }
+                });
+
+            mobiscroll.util.http.getJson('https://trial.mobiscroll.com/events/?vers=5', function (events) {
+                calendar.setEvents(events);
+            }, 'jsonp');
+
+            document.querySelectorAll('.md-view-change').forEach(function (elm) {
+                elm.addEventListener('change', function (ev) {
+                    switch (ev.target.value) {
+                        case 'calendar':
+                            calendar.setOptions({
+                                view: {                                         // More info about view: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#opt-view
+                                    calendar: { labels: true }
+                                }
+                            })
+                            break;
+                        case 'agenda':
+                            calendar.setOptions({
+                                view: {                                         // More info about view: https://docs.mobiscroll.com/5-18-1/javascript/eventcalendar#opt-view
+                                    agenda: { type: 'month' }
+                                }
+                            })
+                            break;
+                    }
+                });
+            });
+
+            document
+                .getElementById('nav-to-prev-page')
+                .addEventListener('click', function () {
+                    var prevPage = new Date(currentDate);
+
+                    prevPage.setDate(1);
+                    prevPage.setMonth(prevPage.getMonth() - 1);
+                    calendar.navigate(prevPage);
+                    currentDate = prevPage;
+                });
+
+            document
+                .getElementById('nav-to-next-page')
+                .addEventListener('click', function () {
+                    var nextPage = new Date(currentDate);
+
+                    nextPage.setDate(1);
+                    nextPage.setMonth(nextPage.getMonth() + 1);
+                    calendar.navigate(nextPage);
+                    currentDate = nextPage;
+                });
+        </script>
+
+        <%- include ('../plantillas/footer') %>
+
+
+
+        

@@ -1,0 +1,280 @@
+<%- include ('../plantillas/head', {'titulo': 'Agenda Reumatologo' }) %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <%- include ('../plantillas/body') %>
+    <script src="js/tareas.js"> </script>
+    <div class="container"><br><br>
+      <div class="card">
+        <div class="card-body row justify-content-center">
+          <div class="col-md-7 col-lg-12">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" style="background-color:#a6bcf5 ;">
+                <div class="modal-content">
+                  <div class="modal-header" style="background-color:#161414 ;">
+                    <p>
+                      <a class="btn btn-danger" type="button" data-bs-dismiss="modal" aria-label="Close">Cancelar</a>
+                    </p>
+                    <h5 class="modal-title text-center text-white" id="exampleModalLabel">Agregar
+                      evento
+                    </h5>
+                    <button id="insertar" type="button" class="btn btn-primary">Hecho</button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3 row">
+                      <label for="state" class="form-label">Asunto</label>
+                      <div class="col">
+                        <select class="form-select" aria-label="Default select example" id="nombre">
+                          <option selected>Seleccione una opción</option>
+                          <option value="Primera vez">Primera vez</option>
+                          <option value="Consecuente">Consecuente</option>
+                          <option value="Revisión de estudios">Revisión de estudios</option>
+                          <option value="Programación de estudios">Programación de estudios</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mb-4 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Empieza</label>
+                      <div class="col-sm-5">
+                        <input type="date" id="fecha" name="fechaI" class="form-control" value="2022-1-1"
+                          min="2022-01-01" max="2050-12-31">
+                      </div>
+                      <div class="col-sm-5">
+                        <input type="time" id="hora" name="horaI" class="form-control" value="00:00" min="01:00"
+                          max="00:00">
+                      </div>
+                    </div>
+                    <div class="mb-4 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">Paciente:</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="paciente" placeholder="">
+                      </div>
+                    </div>
+                    <div class="mb-4 row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label ">Costo:</label>
+                      <div class="col-sm-2">
+                        <input type="number" class="form-control" id="precio" placeholder="$">
+                      </div>
+                      <label for="staticEmail" class="col-sm-2 col-form-label ">Medico:</label>
+                      <div class="col-sm-6">
+                        <input type="text" class="form-control" id="medico" value="Dr. Ulises Pérez Sánchez">
+                      </div>
+                    </div>
+                    <div class="mb-4 row">
+                      <label for="state" class="form-label">Color </label>
+                      <select class="form-select" aria-label="Default select example" id="color">
+                        <option selected>Seleccione un color</option>
+                        <option value="#DF0707">Rojo (Primera vez)</option>
+                        <option value="#48E70D">Verde (Consecuente)</option>
+                        <option value="#015FB7">Azul (Revisión de estudios)</option>
+                        <option value="#FFDD00">Amarillo (Programación de estudios)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table class="table" align="center" style="margin: 0 auto;" style="border:120px ;">
+              <thead>
+                <!--tr style="background-color:#24419e;">
+                              <th colspan="7" class="text-center text-white"> Mis eventos</th>
+                          </tr-->
+                <tr>
+                  <th colspan="4">
+                    <div>
+                      <header>
+                        <nav>
+                          <ul id="menu">
+                            <li class="tab active"><a href="/tareas" class="rd">Citas</a>
+                            </li>
+                            <li class="tab"><a href="/reporte1" class="rd">Reporte</a></li>
+                          </ul>
+                        </nav>
+                      </header>
+                    </div>
+                  </th>
+                  <td>
+                    <p>
+                    <div id="current_date"></div>
+                    </p>
+                  </td>
+                  <th colspan="2">
+                    <div>
+                      <a type="button" class="btn btn-primary redondo" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"><i class="fa-solid fa-plus"></i></a>
+                      <!--a class="btn btn-danger" href=" /calenda"><i class="fa-solid fa-calendar-days"></i></a-->
+                    </div>
+
+                  </th>
+                </tr>
+              </thead>
+            </table>
+            <!-- Modal -->
+
+            <br>
+            <div class="row g-5 table-responsive">
+              <div class="row mt-5">
+                <div class="col-md-14">
+                  <div class="card-body">
+                    <table id="users" class="table" align="center" style="margin: 0 auto;" style="border:120px ;">
+                      <thead>
+                        <tr style="background-color: #6200ee;" class="text-white">
+                          <th></th>
+                          <th></th>
+                          <th>Actividad</th>
+                          <th>Paciente</th>
+                          <th>Estatus</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% if (alumnos.length>0){ %>
+                          <% alumnos.forEach(a=> { %>
+                            <tr>
+                              <th width="1%">
+                                <input type="color" value="<%=a.color%>">
+                              </th>
+                              <th style=" color: rgb(0, 44, 83);" width="15%"> <input id="clave" type="hidden" name="id"
+                                  value="<%= a.id %>">
+                                <%= a.fecha %>
+                              </th>
+                              <th>
+                                <%= a.nombre%> <br>
+                                  <%= a.hora%>
+                              </th>
+                              <th>
+                                <%= a.paciente%>
+                              </th>
+                              <th>
+                                <button style="text-align: center;" type="submit" id="detalle1" class="btn btn-success"
+                                  value="Editar" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                                <a id="delete" class="btn btn-danger" value="Eliminar"><i
+                                    class="fas fa-trash-alt"></i></a>
+                                <!-- Editar paciente -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-xl" style="background-color:#a6bcf5 ;">
+                                    <div class="modal-content">
+                                      <div class="modal-header" style="background-color:#161414 ;">
+                                        <p>
+                                          <a class="btn btn-danger" type="button" data-bs-dismiss="modal"
+                                            aria-label="Close">Cancelar</a>
+                                        </p>
+                                        <h5 class="modal-title text-center text-white" id="exampleModalLabel">
+                                          Editar evento
+                                        </h5>
+                                        <button id="update" type="submit" class="btn btn-primary">Actualizar</button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="container-fluid" id="verdetalle1">
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal fade" id="exampleModals" tabindex="-1"
+                                  aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog modal-fullscreen" style="background-color:#a6bcf5 ;">
+                                    <div class="modal-content">
+                                      <div class="modal-header" style="background-color:#161414 ;">
+                                        <p>
+                                          <a class="btn btn-danger" href="/tarea1" role="button">Cancelar</a>
+                                        </p>
+                                        <h5 class="modal-title text-center text-white" id="exampleModalLabel">
+                                          Editar evento
+                                        </h5>
+                                        <button id="update" type="submit" class="btn btn-primary">Actualizar</button>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="container-fluid" id="verdetalle">
+
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </th>
+                            </tr>
+
+                            <% }) %>
+                              <% } %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+
+    <script>
+      $(document).ready(function () {
+        var tabla = $('#users').DataTable({
+          "createdRow": function (row, data, index) {
+            //pintar una celda
+            if (data[1] >= 200) {
+              $('td', row).eq(1).css({
+                'background-color': '#ff5252',
+                'color': 'white',
+              });
+
+              //pintar una fila
+              $('td', row).css({
+                'background-color': '#ff5252',
+                'color': 'white',
+                'border-style': 'solid',
+                'border-color': '#bdbdbd'
+              });
+            }
+          },
+          language: {
+            "lengthMenu": "Mostrar _MENU_ registros",
+            "zeroRecords": "No se encontraron resultados",
+            "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+            "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+            "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sSearch": "Buscar:",
+            "oPaginate": {
+              "sFirst": "Primero",
+              "sLast": "Último",
+              "sNext": "Siguiente",
+              "sPrevious": "Anterior"
+            },
+            "sProcessing": "Procesando...",
+          }
+        });
+      });
+
+
+      fecha = new Date();
+      diaSemana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+      mesAnyo = ['Enero', 'Febrero', 'Marzo', 'abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+      document.getElementById("current_date").innerHTML = `${diaSemana[fecha.getDay()]}, ${fecha.getDate()} de ${mesAnyo[fecha.getMonth()]} de ${fecha.getFullYear()}`;
+
+      const colorInput = document.querySelector('#color'),
+        textArea = document.querySelector('#textArea'),
+        hex = document.querySelector('#hex'),
+        contDiv = document.querySelector('.cont-int');
+
+      colorInput.addEventListener('input', () => {
+        let color = colorInput.value;
+        hex.style.color = color;
+        hex.innerHTML = color;
+        textArea.style.color = color;
+        contDiv.style.borderColor = color;
+        contDiv.style.background = color;
+      })
+
+
+    </script>
+    <%- include ('../plantillas/footer') %>
