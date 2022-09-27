@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node app.js",
-    "build": "ng buld",
     "heroku-postbuild": "ng build --prod"
   },
   "author": "Eloy Hernandez Felipe",
