@@ -94,5 +94,6 @@ app.use('/pacienteTerapia',require('./routes/pacienteTerapia'))
 app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 //configuración del servidor htpp://localhost:3000/
-app.listen(3000, () => console.log('el servidor en http://localhost:3000'));
+const port = process.env.PORT || 3000
+app.set('port', port);
 //////////////////****************************************** */
