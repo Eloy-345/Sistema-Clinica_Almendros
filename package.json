@@ -1,7 +1,7 @@
 {
-  "name": "examen",
+  "name": "proyecto clinica almendros",
   "version": "1.0.0",
-  "description": "examen primer parcial",
+  "description": "sistema para la clinica almendros",
   "main": "app.js",
    "engines":{
     "node":"12.11.1"
