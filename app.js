@@ -8,7 +8,6 @@ const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
 const protect = require('./confs/auth');
 //configuracionones
-app.set('port', process.env.PORT || 3000)
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,'vistas'))
 
