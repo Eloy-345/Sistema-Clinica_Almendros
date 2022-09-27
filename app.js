@@ -11,7 +11,7 @@ const protect = require('./confs/auth');
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,'vistas'))
 
-app.use(express.urlencoded({extend: true}))
+//app.use(express.urlencoded({extend: true}))
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(bodyparser.json());
