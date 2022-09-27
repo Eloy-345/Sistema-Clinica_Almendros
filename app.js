@@ -95,5 +95,7 @@ app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 //configuración del servidor htpp://localhost:3000/
 const port = process.env.PORT || 3000
-app.set('port', port);
+app.listen(port, () => {
+    (`el servidor en el puerto ${port}`);
+});
 //////////////////****************************************** */
