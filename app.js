@@ -7,12 +7,12 @@ const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
 var http = require('http');
 const protect = require('./confs/auth');
-var session = require('express-session');
-var session = require('cookie-session')
+const session = require('express-session');
+//var session = require('cookie-session')
 const server = http.createServer(app);
 
-var session = require('express-session');
-var session = require('cookie-session');
+//var session = require('express-session');
+//var session = require('cookie-session');
 
 //configuracionones
 const port = process.env.PORT || 3000
