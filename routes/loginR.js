@@ -16,13 +16,13 @@ router.post('/auth', function (req, res) {
 			// If there is an issue with the query, output the error
 			//if (error) throw error;
 			// If the account exists
-			//if (results.length > 0) {
+			if (results.length > 0) {
 				// Authenticate the user
 				req.session.loggedin = true;
 				req.session.username = username;
 				// Redirect to home page
 				res.redirect('/home1');
-			//}/* else {
+			}/* else {
 				req.flash('danger', 'Flash is back!')
 				res.redirect('/');
 			}*/
