@@ -7,8 +7,8 @@ const login = require('./routes/loginR')
 const bodyparser = require("body-parser");
 const http = require('http');
 const protect = require('./confs/auth');
-const session = require('express-session');
-//const sesion= require('cookie-session')
+var session = require('express-session');
+to var sesion= require('cookie-session')
 const server = http.createServer(app);
 //var cookieSession = require('cookie-session')
 
@@ -25,14 +25,16 @@ app.use(bodyparser.urlencoded({limit: '12mb',extended: false}));
 //require('dotenv').config()
 app.use(express.static(path.join(__dirname,'public')))
 //rutas
+
 app.use(session({
-    cookie: {
-        secure: true,
-        maxAge: 60000
-    },
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
+cookie:{
+    secure: true,
+    maxAge:60000
+       },
+store: new RedisStore(),
+secret: 'secret',
+saveUninitialized: true,
+resave: false
 }));
 
 app.use(flash());
