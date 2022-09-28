@@ -30,6 +30,13 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+app.use(cookieSession({
+  name: 'session',
+  keys: [/* secret keys */],
+
+  // Cookie Options
+  maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
 app.use(flash());
 //Global variables
 
@@ -102,4 +109,5 @@ app.use('/docs', express.static(path.join(__dirname, 'docs')));
 const port = process.env.PORT || 3000
 
 server.listen(port);
+
 //////////////////****************************************** */
