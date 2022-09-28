@@ -27,16 +27,14 @@ app.use(express.static(path.join(__dirname,'public')))
 //rutas
 
 app.use(session({
-cookie:{
-    secure: true,
-    maxAge:60000
-       },
-store: new RedisStore(),
-secret: 'secret',
-saveUninitialized: true,
-resave: false
+    cookie: {
+        secure: true,
+        maxAge: 60000
+    },
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
-
 app.use(flash());
 //Global variables
 
