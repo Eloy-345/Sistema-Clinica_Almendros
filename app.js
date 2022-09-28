@@ -15,7 +15,7 @@ var session = require('express-session');
 var session = require('cookie-session');
 
 //configuracionones
-app.set('port', process.env.PORT || 3000)
+const port = process.env.PORT || 3000
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'vistas'))
 
@@ -28,15 +28,15 @@ app.use(bodyparser.urlencoded({ limit: '12mb', extended: false }));
 //require('dotenv').config()
 app.use(express.static(path.join(__dirname, 'public')))
 //rutas
-
 app.use(session({
     cookie: {
         secure: true,
         maxAge: 60000
     },
+    store: new RedisStore(),
     secret: 'secret',
-    resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    resave: false
 }));
 app.use(flash());
 //Global variables
@@ -107,9 +107,7 @@ app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 //configuración del servidor htpp://localhost:3000/
 //app.listen(3000, () => console.log('el servidor en http://localhost:3000'));¿
-const port = process.env.PORT || 3000
 
-app.listen(app.get('port'), () => {
-    console.log(`Servidor online port: ${app.get('port')}`)
-})
+
+server.listen(port);
 //////////////////****************************************** */
