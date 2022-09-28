@@ -4,12 +4,13 @@ const path = require('path')
 const app = express()
 const flash = require('connect-flash');
 const login = require('./routes/loginR')
-var bodyparser = require("body-parser");
-var http = require('http');
+const bodyparser = require("body-parser");
+const http = require('http');
 const protect = require('./confs/auth');
 const session = require('express-session');
-//var sesion= require('cookie-session')
+const sesion= require('cookie-session')
 const server = http.createServer(app);
+var cookieSession = require('cookie-session')
 
 //configuracionones
 app.set('view engine', 'ejs')
