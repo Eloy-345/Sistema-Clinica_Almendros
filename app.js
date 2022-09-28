@@ -2,12 +2,15 @@ const express = require('express')
 const morgan = require ('morgan')
 const path = require('path')
 const app = express()
-const session = require('express-session');
 const flash = require('connect-flash');
 const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
-const protect = require('./confs/auth');
 var http = require('http');
+const protect = require('./confs/auth');
+var session = require('express-session');
+var session= require('cookie-session')
+const server = http.createServer(app);
+
 //configuracionones
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,'vistas'))
@@ -16,9 +19,8 @@ app.set('views', path.join(__dirname,'vistas'))
 app.use(express.json())
 app.use(morgan('dev'))
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({limit: '10mb',extended: false}));
+app.use(bodyparser.urlencoded({limit: '12mb',extended: false}));
 
-const server = http.createServer(app);
 //require('dotenv').config()
 app.use(express.static(path.join(__dirname,'public')))
 //rutas
@@ -95,6 +97,7 @@ app.use('/pacienteTerapia',require('./routes/pacienteTerapia'))
 app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 //configuración del servidor htpp://localhost:3000/
+//app.listen(3000, () => console.log('el servidor en http://localhost:3000'));¿
 const port = process.env.PORT || 3000
 
 server.listen(port);
