@@ -7,7 +7,7 @@ const flash = require('connect-flash');
 const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
 const protect = require('./confs/auth');
-const server = http.createServer(app);
+var http = require('http');
 //configuracionones
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,'vistas'))
