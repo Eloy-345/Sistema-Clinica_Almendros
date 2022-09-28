@@ -8,7 +8,7 @@ const bodyparser = require("body-parser");
 const http = require('http');
 const protect = require('./confs/auth');
 var session = require('express-session');
-to var sesion= require('cookie-session')
+//to var sesion= require('cookie-session')
 const server = http.createServer(app);
 //var cookieSession = require('cookie-session')
 
