@@ -7,8 +7,8 @@ const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
 var http = require('http');
 const protect = require('./confs/auth');
-var session = require('express-session');
-var sesion= require('cookie-session')
+const session = require('express-session');
+//var sesion= require('cookie-session')
 const server = http.createServer(app);
 
 //configuracionones
