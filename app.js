@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const login = require('./routes/loginR')
 var bodyparser = require("body-parser");
 const protect = require('./confs/auth');
+const server = http.createServer(app);
 //configuracionones
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname,'vistas'))
@@ -17,6 +18,7 @@ app.use(morgan('dev'))
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({limit: '10mb',extended: false}));
 
+const server = http.createServer(app);
 //require('dotenv').config()
 app.use(express.static(path.join(__dirname,'public')))
 //rutas
@@ -94,7 +96,6 @@ app.use('/docs', express.static(path.join(__dirname, 'docs')));
 
 //configuración del servidor htpp://localhost:3000/
 const port = process.env.PORT || 3000
-app.listen(port, () => {
-    (`el servidor en el puerto ${port}`);
-});
+
+server.listen(port);
 //////////////////****************************************** */
