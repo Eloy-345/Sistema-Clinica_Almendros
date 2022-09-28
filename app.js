@@ -26,9 +26,13 @@ app.use(bodyparser.urlencoded({limit: '12mb',extended: false}));
 app.use(express.static(path.join(__dirname,'public')))
 //rutas
 app.use(session({
-	secret: 'secret',
-	resave: true,
-	saveUninitialized: true
+    cookie: {
+        secure: true,
+        maxAge: 60000
+    },
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
 
 app.use(flash());
