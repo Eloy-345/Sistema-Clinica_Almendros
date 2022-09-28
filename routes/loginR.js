@@ -22,10 +22,10 @@ router.post('/auth', function (req, res) {
 				req.session.username = username;
 				// Redirect to home page
 				res.redirect('/home1');
-			} else {
+			}/* else {
 				req.flash('danger', 'Flash is back!')
 				res.redirect('/');
-			}
+			}*/
 			res.end();
 		});
 	} 
