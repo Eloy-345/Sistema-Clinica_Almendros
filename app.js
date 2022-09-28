@@ -10,7 +10,7 @@ const protect = require('./confs/auth');
 const session = require('express-session');
 const sesion= require('cookie-session')
 const server = http.createServer(app);
-var cookieSession = require('cookie-session')
+//var cookieSession = require('cookie-session')
 
 //configuracionones
 app.set('view engine', 'ejs')
@@ -30,13 +30,12 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-app.use(cookieSession({
+/*app.use(cookieSession({
   name: 'session',
-  keys: [/* secret keys */],
 
   // Cookie Options
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
-}))
+}))*/
 app.use(flash());
 //Global variables
 
