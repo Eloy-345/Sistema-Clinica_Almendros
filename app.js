@@ -8,11 +8,8 @@ var bodyparser = require("body-parser");
 var http = require('http');
 const protect = require('./confs/auth');
 const session = require('express-session');
-//var session = require('cookie-session')
 const server = http.createServer(app);
 
-//var session = require('express-session');
-//var session = require('cookie-session');
 
 //configuracionones
 const port = process.env.PORT || 3000
@@ -29,14 +26,9 @@ app.use(bodyparser.urlencoded({ limit: '12mb', extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 //rutas
 app.use(session({
-    cookie: {
-        secure: true,
-        maxAge: 60000
-    },
-    store: new RedisStore(),
     secret: 'secret',
     saveUninitialized: true,
-    resave: false
+    resave: true
 }));
 app.use(flash());
 //Global variables
